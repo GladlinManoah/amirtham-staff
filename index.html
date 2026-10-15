@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ta"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17485A">
+<title>அமிர்தம் ஆவின்பால் — பணியாளர்</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Serif+Tamil:wght@700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16323B;--teal:#17485A;--teal2:#0F3644;--gold:#C9A227;--gold2:#F3D77A;--milk:#F7F3EA;--card:#fff;--line:#ECE6D8;--mute:#6B7A80;--ok:#2E7D32;--bad:#C62828;--brown:#6B3A1E;--amber:#B26A00}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{overflow-x:hidden}
+body{font-family:"Noto Sans Tamil",sans-serif;margin:0;background:var(--milk);color:var(--ink);padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+b,strong{font-weight:700}
+.hero{background:radial-gradient(120% 140% at 0% 0%,#22607A 0%,var(--teal) 45%,var(--teal2) 100%);color:#fff;padding:22px 16px 52px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;left:-10%;right:-10%;bottom:-38px;height:76px;background:var(--milk);border-radius:50% 50% 0 0}
+.hero .ring{position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;border:22px solid rgba(255,255,255,.05)}
+.bt{font-family:"Noto Serif Tamil",serif;font-weight:800;font-size:24px;line-height:1.2;letter-spacing:.3px;position:relative;z-index:1;padding-right:96px}
+.lt{position:absolute;right:12px;top:14px;z-index:3;display:flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:2px}
+.lt span{padding:4px 11px;border-radius:12px;font-size:12.5px;color:#D7E7EC;cursor:pointer;font-family:Inter,"Noto Sans Tamil",sans-serif;font-weight:600}
+.lt span.on{background:#fff;color:var(--teal)}
+.today{position:relative;z-index:2;margin:-38px 14px 0;background:var(--card);border-radius:18px;box-shadow:0 8px 24px rgba(23,72,90,.13);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.today .dt{flex:1;min-width:0;font-size:min(17.5px,4.6vw);font-weight:700;color:var(--teal);line-height:1.35}
+.today .ck{flex:none;font-family:Inter,sans-serif;font-weight:700;font-size:min(16px,4.2vw);color:var(--teal);background:#EEF5F7;border-radius:10px;padding:4px 10px;white-space:nowrap}
+.who{margin:14px 18px 0}
+.portal{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.6px;text-transform:uppercase}
+.hi{font-size:15px;color:var(--mute);margin-top:6px}
+.nm{font-size:21px;font-weight:700;color:var(--teal);line-height:1.3}
+.net{margin:10px 14px 0;padding:8px 12px;border-radius:12px;font-size:13.5px;display:none;line-height:1.45}
+.net.q{display:block;background:#FFF4CC;color:#7A5A00}.net.off{display:block;background:#EEF1F2;color:#455A64}.net.auth{display:block;background:#FDECEA;color:var(--bad);font-weight:700}
+.card{background:var(--card);margin:12px 14px;border-radius:18px;padding:15px 16px;box-shadow:0 2px 10px rgba(23,72,90,.07)}
+.h{font-size:17px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.h small{font-size:13px;font-weight:600;color:var(--teal);border:1.5px solid var(--teal);border-radius:12px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+.shift{display:flex;gap:10px;margin-bottom:4px}
+.shift>div{flex:1;border-radius:14px;background:#F6F8F8;padding:10px 12px;min-width:0}
+.shift .t{font-size:13px;color:var(--mute)}
+.shift b{display:block;font-family:Inter,sans-serif;font-size:21px;margin-top:2px}
+.shift i{font-style:normal;font-size:12.5px;color:var(--mute);display:block;margin-top:2px}
+.shift>div.on{background:#E9F4EA}.shift>div.on b{color:var(--ok)}
+.shift>div.lv{background:#EDF3FB}.shift>div.lv b{font-family:inherit;font-size:16px;color:#1F5C99}
+.big{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;border:0;border-radius:18px;font-size:21px;font-weight:700;padding:15px 10px 13px;color:#fff;background:linear-gradient(180deg,#36934A,#2A7A3C);margin:12px 0 4px;font-family:inherit;box-shadow:0 5px 0 #1F5E2D;cursor:pointer;line-height:1.3;text-align:center}
+.big.t{background:linear-gradient(180deg,#22607A,var(--teal));box-shadow:0 5px 0 #0E3341}
+.big.y{background:linear-gradient(180deg,#D3AC33,#B8901B);box-shadow:0 5px 0 #8E6E10;font-size:18px}
+.big.rd{background:linear-gradient(180deg,#D9534F,#B83A36);box-shadow:0 5px 0 #8A2724}
+.big.w{background:#fff;color:var(--teal);border:2px solid var(--teal);box-shadow:0 4px 0 #CFDCE0}
+.big:disabled{opacity:.45;box-shadow:none;transform:translateY(5px);cursor:default}
+.big .s{font-size:12.5px;font-weight:600;opacity:.85;margin-top:2px}
+.sm{font-size:13px;color:var(--mute);margin-top:8px;text-align:center}
+.msg{margin:12px 14px 0;padding:13px 15px;border-radius:16px;font-size:15.5px;line-height:1.6;display:none;white-space:pre-line}
+.ok{background:#E7F4E8;color:#1B5E20}.warn{background:#FFF3DC;color:#7A4C00}.err{background:#FDECEA;color:#B71C1C}.wait{background:#EAF2F5;color:var(--teal)}
+input,select,textarea{font-size:17px;padding:12px;width:100%;margin:5px 0;border:1.5px solid #DCE3E5;border-radius:14px;font-family:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--teal)}
+.lbl{font-size:13px;color:var(--mute);margin-top:10px;font-weight:600}
+.seg{display:flex;gap:8px;margin:5px 0 4px}.seg>span,.seg4>span{flex:1;text-align:center;padding:9px 2px 8px;border:1.5px solid #DCE3E5;border-radius:14px;font-size:15px;cursor:pointer;background:#fff;line-height:1.25}
+.seg>span.on,.seg4>span.on{background:var(--teal);color:#fff;border-color:var(--teal);font-weight:700}
+.seg4{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 6px}
+.rule{font-size:13px;color:#4E5C61;background:#F6F4EE;border-radius:12px;padding:9px 11px;margin-top:12px;line-height:1.6}
+.redbox{font-size:13.5px;color:#B71C1C;background:#FDECEA;border-radius:12px;padding:9px 11px;margin-top:8px;line-height:1.6;font-weight:600}
+.rq{border-bottom:1px solid #F0ECE2;padding:11px 2px;font-size:15px}.rq:last-child{border-bottom:0}
+.rq .t{display:flex;justify-content:space-between;gap:8px}.rq .t span:first-child{flex:1}
+.pill{font-size:12.5px;font-weight:700;white-space:nowrap;border-radius:10px;padding:2px 9px;height:fit-content;display:inline-block}
+.p{color:#8A6D00;background:#FFF4CC}.g{color:#1F6B2A;background:#E3F2E5}.r{color:#B71C1C;background:#FDE3E1}.gr{color:#777;background:#EEE}
+.rep{font-size:14px;color:#334;margin-top:6px;background:#F6F8F8;border-radius:10px;padding:7px 10px}
+.fl{font-size:12.5px;color:#B71C1C;margin-top:4px}
+.mini{border:1.5px solid #DCE3E5;background:#fff;border-radius:12px;padding:6px 12px;font-size:13px;font-family:inherit;color:#555;margin-top:8px;cursor:pointer}
+.a{font-size:15px;display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid #F0ECE2}
+.tot2{display:flex;justify-content:space-between;font-weight:700;font-size:16px;padding:9px 2px 2px}
+.cover{background:linear-gradient(160deg,#EAF4F7,#D5E9EF);border:2px solid var(--teal);border-radius:20px;padding:12px 10px 10px;margin:2px 0 12px}
+.cover .ttl{text-align:center;font-size:14px;font-weight:700;color:var(--teal);letter-spacing:.4px;margin-bottom:9px}
+.cv{display:flex;gap:8px}.cv div{flex:1;background:#fff;border-radius:15px;text-align:center;padding:9px 0 7px;box-shadow:0 2px 0 rgba(23,72,90,.12)}
+.cv b{display:block;font-family:Inter,sans-serif;font-size:34px;line-height:1.1;color:var(--teal)}.cv span{font-size:13px;color:var(--mute)}
+.cover .tot{text-align:center;font-size:15px;margin-top:9px;color:var(--teal)}
+.veh{border-radius:16px;padding:12px;text-align:center;font-size:16.5px;font-weight:700;margin-bottom:12px;line-height:1.45}
+.veh.y{background:#E7F4E8;color:#1B5E20;border:2px solid #2E7D32}.veh.n{background:#FDECEA;color:#B71C1C;border:2px solid #C62828}
+.dl{font-size:15px;line-height:1.7;background:#FBF8F2;border-radius:12px;padding:9px 12px}
+.hd{font-size:14px;color:var(--brown);font-weight:800;margin-top:10px;letter-spacing:.2px;border-bottom:1.5px solid #E8D6C4;padding-bottom:2px}
+.hd:first-child{margin-top:0}
+.ln{padding:2px 0}.ln.red{color:var(--bad);font-weight:700}.ln.dn{color:#1F5C99}.ln.up{color:var(--ok)}
+.stale{background:#FDECEA;color:var(--bad);border-radius:12px;padding:8px 10px;font-size:13.5px;font-weight:600;margin-bottom:10px}
+.upd{font-size:12px;color:var(--mute);text-align:right;margin-top:6px}
+/* டெலிவரி */
+.prog{height:10px;background:#E4ECEE;border-radius:6px;overflow:hidden;margin:4px 0 2px}.prog i{display:block;height:100%;background:linear-gradient(90deg,#36934A,#5DB56E)}
+.progt{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}
+.stop{border:2.5px solid var(--teal);border-radius:20px;padding:14px 14px 12px;background:linear-gradient(180deg,#FFFFFF,#F4FAFB)}
+.stop .nx{font-size:12.5px;font-weight:700;color:var(--gold);letter-spacing:.6px}
+.stop .nmx{font-size:24px;font-weight:800;color:var(--teal);line-height:1.3;margin-top:2px}
+.rtn{font-family:Inter,sans-serif;background:var(--teal);color:#fff;border-radius:10px;padding:0 8px;font-size:.85em;margin-right:2px}
+.pkbig{font-size:30px;font-weight:800;font-family:Inter,"Noto Sans Tamil",sans-serif;color:var(--ink);margin:8px 0 2px}
+.tag{display:inline-block;font-size:13px;font-weight:700;border-radius:10px;padding:3px 10px;margin:4px 4px 0 0}
+.tag.dn{background:#E3EEF9;color:#1F5C99}.tag.up{background:#E3F2E5;color:var(--ok)}.tag.alt{background:#F3E8FF;color:#6A1B9A}.tag.sw{background:#FFF0D9;color:var(--amber)}
+.onote{background:#FFF8E1;border-radius:10px;padding:7px 10px;font-size:14.5px;margin-top:8px;color:#5D4300}
+.ph{width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:10px;background:#EEE}
+.two{display:flex;gap:10px}.two>button{flex:1;min-width:0;margin-top:10px;font-size:19px;padding-left:6px;padding-right:6px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.lk{border:1.5px solid #CFDCE0;background:#fff;border-radius:12px;padding:8px 12px;font-size:14px;font-family:inherit;color:var(--teal);font-weight:600;cursor:pointer}
+.iss label{display:flex;align-items:center;gap:10px;padding:9px 4px;font-size:16px;border-bottom:1px solid #F0ECE2}.iss input{width:22px;height:22px;margin:0}
+.lst .row{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F0ECE2;font-size:15px;cursor:pointer}
+.lst .row:last-child{border-bottom:0}
+.lst .ic{width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.ic.d{background:#E3F2E5;color:var(--ok)}.ic.i{background:#FFF0D9;color:var(--amber)}.ic.p{background:#EEF1F2;color:#90A4AE}.ic.c{background:var(--teal);color:#fff}
+.lst .row .q{margin-left:auto;font-size:13px;color:var(--mute);white-space:nowrap}
+.lst .row.cur{background:#EEF6F8;border-radius:12px}
+details{margin-top:10px}summary{font-size:14.5px;font-weight:700;color:var(--teal);cursor:pointer;padding:6px 0}
+.bikew{background:#FDECEA;border:2.5px solid var(--bad);border-radius:18px;padding:14px;color:#8E1B1B;font-size:18.5px;font-weight:700;line-height:1.75}
+.bikeq{font-size:19px;font-weight:800;color:var(--teal);text-align:center;margin:14px 0 2px}
+.thanks{background:#E7F4E8;border-radius:18px;padding:16px;font-size:18px;font-weight:700;color:#1B5E20;line-height:1.7;text-align:center}
+/* பதிவு */
+.mon{display:flex;background:#EFEBE0;border-radius:12px;padding:3px;margin:12px 14px 0}.mon>span{flex:1;text-align:center;padding:8px 0;border-radius:10px;font-size:14.5px;cursor:pointer}
+.mon>span.on{background:#fff;font-weight:700;color:var(--teal);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.chips{display:flex;gap:10px}.chips>div{flex:1;background:#F6F8F8;border-radius:14px;padding:10px;text-align:center}.chips b{display:block;font-family:Inter,sans-serif;font-size:26px;color:var(--teal)}.chips span{font-size:13px;color:var(--mute)}
+.el{border-radius:14px;padding:11px 12px;margin-top:10px;font-size:14.5px;line-height:1.6}
+.el.g{background:#E7F4E8;color:#1B5E20}.el.r{background:#FDECEA;color:#B71C1C}.el.n{background:#F6F4EE;color:#4E5C61}
+.day{border-bottom:1px solid #F0ECE2;padding:11px 2px}.day:last-child{border-bottom:0}
+.day .dh{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700;font-size:15.5px}
+.day .sl{font-size:14px;line-height:1.6;margin-top:4px}.day .sl b{color:var(--teal)}
+.day .lt2{color:var(--bad);font-size:13.5px}
+.day .mm{font-size:13.5px;margin-top:5px;background:#FBF8F2;border-radius:10px;padding:6px 9px;line-height:1.55}
+.slip .a b{font-family:Inter,sans-serif}.slip .a.n{color:var(--bad)}.slip .a.t{font-weight:700;border-top:1.5px solid #DDD}.slip .a.net{font-weight:800;font-size:17px;color:var(--ok);border-bottom:0}
+/* விதிமுறை */
+.rules h3{font-size:16px;color:var(--teal);margin:18px 0 6px;display:flex;align-items:center;gap:9px}.rules h3:first-child{margin-top:2px}
+.rules h3 span{background:var(--teal);color:#fff;border-radius:50%;width:25px;height:25px;flex:none;display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;font-family:Inter,sans-serif}
+.rules ul{margin:0;padding-left:20px}.rules li{font-size:14.5px;line-height:1.65;margin:4px 0}.rules li.red{color:#B71C1C;font-weight:700}
+.chk{display:flex;align-items:center;gap:10px;font-size:15px;margin:10px 0 4px;color:#B71C1C;font-weight:700}.chk input{width:22px;height:22px;margin:0}
+/* பக்கங்கள் */
+.sec{display:none}.sec.on{display:block}
+.sec.inR{animation:inR .25s ease}.sec.inL{animation:inL .25s ease}
+@keyframes inR{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes inL{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid #E8E2D2;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:9;box-shadow:0 -4px 18px rgba(23,72,90,.08)}
+.nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 0 4px;border-radius:14px;color:#7D8A8F;position:relative;cursor:pointer}
+.nav svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nav b{font-size:11px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.nav a.on{color:var(--teal);background:#E6F0F3}.nav a.on b{font-weight:700}
+.nav .n{position:absolute;top:1px;right:calc(50% - 22px);background:var(--bad);color:#fff;border-radius:9px;min-width:17px;height:17px;font-size:10.5px;font-family:Inter,sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid #fff}
+.sheet{position:fixed;inset:0;background:rgba(10,30,38,.55);z-index:20;display:none;align-items:flex-end}
+.sheet.on{display:flex}
+.sheet .in{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+.sheet h4{margin:0 0 6px;font-size:18px;color:var(--teal)}
+.prev{width:100%;border-radius:14px;margin-top:8px;max-height:240px;object-fit:cover}
+.gate{padding:40px 22px;text-align:center;font-size:18px;line-height:1.7;color:var(--teal)}
+</style></head><body>
+<div class="hero"><div class="ring"></div>
+ <div class="lt" id="lt"><span data-v="ta">தமிழ்</span><span data-v="en">EN</span></div>
+ <div class="bt" id="brand">அமிர்தம் ஆவின்பால்</div></div>
+<div class="today"><div class="dt" id="dtxt"></div><div class="ck" id="clk"></div></div>
+<div class="who"><div class="portal" id="portal"></div><div class="hi" id="hi"></div><div class="nm" id="nm"></div></div>
+<div id="net" class="net"></div>
+<div id="msg" class="msg"></div>
+
+<div class="sec" id="s_att"><div id="att"></div></div>
+<div class="sec" id="s_run"><div id="run"></div></div>
+<div class="sec" id="s_rec"><div class="mon" id="recm"><span data-v="cur"></span><span data-v="prev"></span></div><div id="rec"></div></div>
+<div class="sec" id="s_req">
+ <div class="mon" id="reqm"><span data-v="lv"></span><span data-v="adv"></span></div>
+ <div id="w_lv">
+  <div class="card"><div class="h"><div id="t_newreq"></div></div>
+   <div class="seg4" id="rtype"><span data-v="LV"></span><span data-v="EL"></span><span data-v="SK"></span><span data-v="LT"></span></div>
+   <div class="lbl" id="l_date"></div><input type="date" id="rdate">
+   <div id="w_part"><div class="lbl" id="l_shift"></div><div class="seg" id="rpart"><span data-v="FN"></span><span data-v="AN"></span><span data-v="FD"></span></div></div>
+   <div id="w_full" class="lbl" style="display:none;font-size:15px;color:var(--teal)"></div>
+   <div id="w_lt" style="display:none">
+    <div class="lbl" id="l_howlate"></div><div class="seg" id="rmins"><span data-v="15"></span><span data-v="30"></span><span data-v="45"></span><span data-v="60"></span></div>
+    <div class="sm" id="ltto" style="text-align:left;color:var(--teal);font-weight:600"></div>
+    <div class="lbl" id="l_reason"></div><select id="rwhy"></select>
+   </div>
+   <div class="lbl" id="l_note"></div><input id="rnote" maxlength="200">
+   <button class="big y" id="breq"></button>
+   <div class="rule" id="rhint"></div>
+   <div class="redbox" id="ltred" style="display:none"></div>
+  </div>
+  <div class="card"><div class="h"><div id="t_myreq"></div></div><div id="rlist"></div></div>
+ </div>
+ <div id="w_adv" style="display:none">
+  <div class="card"><div class="h"><div id="t_advreq"></div></div>
+   <input id="aamt" type="number" inputmode="numeric">
+   <div class="lbl" id="l_need"></div><input type="date" id="adate">
+   <label class="chk" id="w_emg" style="display:none"><input type="checkbox" id="aemg"><span id="l_emg"></span></label>
+   <input id="awhy" maxlength="200">
+   <button class="big y" id="badv"></button>
+   <div class="rule" id="ahint"></div></div>
+  <div class="card"><div class="h"><div id="t_areqs"></div></div><div id="alist"></div></div>
+  <div class="card"><div class="h"><div id="t_gotm"></div></div><div id="glist"></div></div>
+ </div>
+</div>
+<div class="sec" id="s_rule"><div class="card rules" id="rules"></div></div>
+
+<div class="sheet" id="mk"><div class="in" id="mkin"></div></div>
+
+<nav class="nav" id="nav">
+ <a data-t="att"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></svg><b></b></a>
+ <a data-t="run"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h3l3-6h4l2 6"/><path d="M12 11l-2-4H7"/><path d="M15 7h2.5"/></svg><b></b></a>
+ <a data-t="rec"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b></b></a>
+ <a data-t="req"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><b></b><span class="n" id="nb" style="display:none"></span></a>
+ <a data-t="rule"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4V20H9a4 4 0 0 1-4-4z"/><path d="M9 9h6M9 13h6"/></svg><b></b></a>
+</nav>
+
+<script>
+var API='https://script.google.com/macros/s/AKfycbwWvbZnE_KESEOjOjaYEZgljZOe_3wc1LXOe4AYs0dx36zMGFZV84j08N5ukCNo4owK/exec',VER='v1 · 15-10-2026';
+var K='',LANG='ta',S=null,Q=[],TAB='att',ORDER=['att','run','rec','req','rule'],CUR={FN:null,AN:null},ISS=null,SYNC=false,AGAIN=false,NET='',BUSY=false;
+var RTYPE='LV',RPART='',RMINS=0,REQM='lv',RECM='cur',RECP=null,MK=null;
+var MTA=['ஜனவரி','பிப்ரவரி','மார்ச்','ஏப்ரல்','மே','ஜூன்','ஜூலை','ஆகஸ்ட்','செப்டம்பர்','அக்டோபர்','நவம்பர்','டிசம்பர்'];
+var MEN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var WTA=['ஞாயிறு','திங்கள்','செவ்வாய்','புதன்','வியாழன்','வெள்ளி','சனி'];
+var WEN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var WHY_EN=['Rain','Traffic / bus delay','Bike problem','Not well','Family emergency','Other'];
+var ISS_EN=['Packet broken / leaking','Nobody at home','Customer said no','Covers short','Other'];
+var DEC={wait:[['⏳ காத்திருக்கிறது','⏳ Waiting'],'p'],ok:[['✓ ஏற்கப்பட்டது','✓ Approved'],'g'],no:[['✗ ஏற்கப்படவில்லை','✗ Not approved'],'r'],wd:[['↩ திரும்பப் பெற்றது','↩ Withdrawn'],'gr'],got:[['✓ பெற்றது','✓ Received'],'g']};
+var FLAG={CUT:['⚠ நேரம் கடந்த கோரிக்கை — அனுமதி பெறாத விடுமுறை என்றே கணக்கிடப்படும்','⚠ Late request — counted as leave without permission'],
+ SOFT:['⚠ பரிந்துரைத் தேதிக்கு முன் — உரிமையாளரிடம் உறுதிப்படுத்துங்கள்','⚠ Before the suggested date — confirm with the owner'],
+ ELH:['⚠ ஈட்டிய விடுப்பு உள்ள பாதி — சலுகைகள் பொருந்தாது','⚠ Earned leave half — benefits will not apply']};
+
+function $(i){return document.getElementById(i)}
+function T(ta,en){return LANG==='en'?en:ta}
+function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})}
+function ls(k,v){try{if(v===undefined){var x=localStorage.getItem(k);return x==null?null:JSON.parse(x)}localStorage.setItem(k,JSON.stringify(v));return v}catch(e){return null}}
+function p2(n){return('0'+n).slice(-2)}
+function ymd(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
+function mins(d){return d.getHours()*60+d.getMinutes()}
+function hm(d){return p2(d.getHours())+':'+p2(d.getMinutes())}
+function tmin(s,pm){var m=String(s||'').match(/(\d{1,2})\s*[:.]\s*(\d{1,2})/);if(!m)return null;var h=+m[1];if(pm&&h<12)h+=12;return h*60+(+m[2])}
+function h12(t){t=((t%1440)+1440)%1440;var h=Math.floor(t/60);return((h%12)||12)+':'+p2(t%60)+(t<720?' AM':' PM')}
+function hh(t){t=((t%1440)+1440)%1440;var h=Math.floor(t/60);return p2((h%12)||12)+':'+p2(t%60)}
+function dur(m){if(m==null||m<0)return'';return m<60?m+T(' நி',' min'):Math.floor(m/60)+T(' ம ',' h ')+(m%60)+T(' நி',' min')}
+function fmtN(x){return Math.round(Number(x)||0).toLocaleString('en-IN')}
+function shL(F){return F==='FN'?T('காலை','Morning'):T('மாலை','Evening')}
+function curShift(){return mins(new Date())<720?'FN':'AN'}
+function dist(a,b,c,d){var r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.pow(Math.sin(x/2),2)+Math.cos(a*r)*Math.cos(c*r)*Math.pow(Math.sin(y/2),2);return Math.round(2*6371000*Math.asin(Math.sqrt(h)))}
+function pkTxt(p){var t=[],u=T(' லி',' L');if(p[0])t.push('1'+u+(p[0]>1?' × '+p[0]:''));if(p[1])t.push('0.7'+u+(p[1]>1?' × '+p[1]:''));if(p[2])t.push('0.5'+u+(p[2]>1?' × '+p[2]:''));return t.join(' + ')}
+function qL(q){return(Math.round(q*100)/100)+' '+T('லி','L')}
+function rtn(s){return'<span class="rtn">'+esc(s.rt)+'</span> - '+esc(s.n)}
+function whyL(w){var i=(S&&S.why||[]).indexOf(w);return LANG==='en'&&i>=0?WHY_EN[i]:w}
+function issL(w){var i=(S&&S.issues||[]).indexOf(w);return LANG==='en'&&i>=0?ISS_EN[i]:w}
+function M(c,t){var m=$('msg');if(!t){m.style.display='none';return}m.className='msg '+c;m.textContent=t;m.style.display='block';window.scrollTo(0,0)}
+
+/* ---------- வரிசை (offline) ---------- */
+function enq(fn,p){var it={cid:Date.now().toString(36)+Math.random().toString(36).slice(2,8),fn:fn,at:Date.now(),p:p,n:0};Q.push(it);ls('q',Q);renderAll();setTimeout(sync,200);return it}
+function blankAtt(){return{t:'',milk:'',st:'',why:'',allow:0,off:false,b:'',e:'',bike:''}}
+function view(){
+ if(!S)return null;var v=JSON.parse(JSON.stringify(S)),now=new Date(),td=ymd(now);
+ if(v.today!==td){v.att={FN:blankAtt(),AN:blankAtt()};v.dlog={FN:{},AN:{},mk:{}};v.oldDay=true;v.today=td;v.offNext={FN:false,AN:false}}
+ Q.forEach(function(it){var d=new Date(it.at);if(ymd(d)!==td)return;var F=it.p.shift||(mins(d)<720?'FN':'AN'),a=v.att[F];
+  if(it.fn==='in'){if(!a.t){a.t=hm(d);a.st='P'}}
+  else if(it.fn==='why'){a.why=it.p.why}
+  else if(it.fn==='dstart'){if(!a.b)a.b=hm(d)}
+  else if(it.fn==='dend'){if(!a.e)a.e=hm(d)}
+  else if(it.fn==='bike'){a.bike=it.p.ans}
+  else if(it.fn==='stop'){if(it.p.a==='undo')delete v.dlog[F][it.p.id];else v.dlog[F][it.p.id]={a:it.p.a,why:it.p.why}}
+  else if(it.fn==='mark'){v.dlog.mk[it.p.id]=1}});
+ return v}
+function post(fn,args){
+ var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},40000);
+ return fetch(API,{method:'POST',body:JSON.stringify({key:K,fn:fn,args:[args]}),signal:ctl?ctl.signal:undefined})
+  .then(function(r){return r.json()}).then(function(j){clearTimeout(tm);if(!j.ok)throw new Error(j.err||'?');return j.r},function(e){clearTimeout(tm);throw e})}
+function sync(){
+ if(!K)return;if(SYNC){AGAIN=true;return}SYNC=true;
+ var items=Q.slice(0,40),fn=items.length?'sync':'state';
+ var args=items.length?{items:items.map(function(x){return{cid:x.cid,fn:x.fn,at:x.at,p:x.p}}),now:Date.now(),lang:LANG}:{lang:LANG};
+ post(fn,args).then(function(r){
+  var st=items.length?r.state:r,bad=[];
+  if(items.length){r.res.forEach(function(x){var i=-1;Q.forEach(function(q,k){if(q.cid===x.cid)i=k});if(i<0)return;
+   if(x.ok||!x.retry){Q.splice(i,1);if(!x.ok&&x.msg)bad.push(x.msg)}else{Q[i].n=(Q[i].n||0)+1;if(Q[i].n>=6){bad.push(x.msg||'?');Q.splice(i,1)}}});ls('q',Q)}
+  S=st;ls('st',S);NET='ok';renderAll();if(bad.length)M('err',bad.join('\n\n'));
+ }).catch(function(e){NET=/AUTH/.test(String(e&&e.message))?'auth':'off';renderNet()}).then(function(){SYNC=false;if(AGAIN){AGAIN=false;setTimeout(sync,400)}})}
+function act(a,p,after){
+ if(BUSY)return;BUSY=true;M('wait',T('அனுப்புகிறது…','Sending…'));p=p||{};
+ post('act',{a:a,p:p,lang:LANG}).then(function(r){BUSY=false;if(r.state){S=r.state;ls('st',S)}renderAll();M(r.ok?(r.warn?'warn':'ok'):'err',r.msg);if(after)after(r)})
+  .catch(function(e){BUSY=false;NET=/AUTH/.test(String(e&&e.message))?'auth':'off';renderNet();M('err',T('இணையம் இல்லை — signal வந்ததும் மீண்டும் அனுப்பவும்.','No internet — please send again when you have signal.'))})}
+
+/* ---------- தலைப்பு ---------- */
+function rHead(){var d=new Date();$('dtxt').textContent=d.getDate()+' '+(LANG==='en'?MEN:MTA)[d.getMonth()]+' · '+(LANG==='en'?WEN:WTA)[d.getDay()];
+ $('clk').textContent=h12(mins(d));$('portal').textContent=T('பணியாளர் தளம்','Staff portal');$('hi').textContent=T('வணக்கம்,','Hello,');
+ $('nm').textContent=S?T(S.name,S.nameEn):'';if(S&&S.farm)$('brand').textContent=S.farm}
+function renderNet(){var n=$('net'),q=Q.length;
+ if(NET==='auth'){n.className='net auth';n.textContent=T('⚠ இணைப்பு தவறு — உரிமையாளரிடம் புதிய இணைப்பு கேளுங்கள்.','⚠ Wrong link — ask the owner for a new link.');return}
+ if(q){n.className='net q';n.textContent=T('⏳ '+q+' பதிவு phone-ல் உள்ளது — signal வந்ததும் தானாக அனுப்பப்படும்.','⏳ '+q+' entries saved on phone — sent automatically when signal returns.')+(NET==='off'?' 📵':'');return}
+ if(NET==='off'){n.className='net off';n.textContent=T('📵 இணையம் இல்லை — பதிவுகள் phone-ல் சேமிக்கப்படும்.','📵 No internet — entries are saved on the phone.');return}
+ n.className='net';n.textContent=''}
+
+/* ---------- வருகை ---------- */
+function lateInfo(v,F){var a=v.att[F],c=v.cfg,t=tmin(a.t,F==='AN');if(t==null)return null;var st=F==='FN'?c.fnStart:c.anStart,late=t-st;
+ if(late<=c.grace+(a.allow||0))return null;return{min:late,allow:a.allow||0,fine:Math.max(0,late-(a.allow||0)-c.grace)*c.lateRate}}
+function rAtt(v){var h='',F=curShift(),a=v.att[F];
+ function box(G){var x=v.att[G],cls=x.t?'on':(x.off?'lv':''),big=x.t||(x.off?T('விடுப்பு','Leave'):'—');
+  return'<div class="'+cls+'"><div class="t">'+shL(G)+'</div><b>'+esc(big)+'</b>'+(x.milk?'<i>🥛 '+T('பால் ','Milk ')+esc(x.milk)+'</i>':'')+'</div>'}
+ h+='<div class="card"><div class="h"><div>'+T('இன்றைய வருகை','Today')+'</div></div><div class="shift">'+box('FN')+box('AN')+'</div>';
+ var m=mins(new Date()),dis=!!a.t||a.off||m<180||m>=1320,lab;
+ if(a.t)lab=T('✓ '+shL(F)+' வருகை · ','✓ Arrived · ')+a.t;else if(a.off)lab=T('இன்று '+shL(F)+' உங்களுக்கு விடுப்பு','You are on leave this '+shL(F).toLowerCase());else lab=T('✓ வந்துவிட்டேன்','✓ I have arrived');
+ h+='<button class="big" id="bin" '+(dis?'disabled':'')+'>'+lab+'</button>';
+ h+='<div class="sm">'+T('இம்மாதம் வந்தது: காலை '+v.nFN+' · மாலை '+v.nAN,'This month: Morning '+v.nFN+' · Evening '+v.nAN)+'</div></div>';
+ var L=a.t?lateInfo(v,F):null;
+ if(L){var t;
+  if(LANG==='en'){t='You came <b>'+L.min+' minutes</b> late this '+shL(F).toLowerCase()+(L.allow?' (allowed '+L.allow+' min)':'')+'. ';if(L.fine>0)t+=v.cfg.active?'<b>₹'+L.fine+'</b> will be cut from your salary. ':'<b>₹'+L.fine+'</b> will be cut from '+esc(v.cfg.penEn)+'. ';t+='Please come on time to avoid fines.'}
+  else{t='இன்று '+shL(F)+' <b>'+L.min+' நிமிடம்</b> தாமதமாக வந்துள்ளீர்கள்'+(L.allow?' (அனுமதி '+L.allow+' நிமி)':'')+'. ';if(L.fine>0)t+=v.cfg.active?'தாமதத்துக்கு <b>₹'+L.fine+'</b> உங்கள் சம்பளத்தில் பிடிக்கப்படும். ':'தாமதத்துக்கு <b>₹'+L.fine+'</b> — '+esc(v.cfg.pen)+' முதல் பிடிக்கப்படும். ';t+='அபராதங்களைத் தவிர்க்க தயவுசெய்து சரியான நேரத்துக்கு வருகை தாருங்கள்.'}
+  h+='<div class="msg warn" style="display:block">⏰ '+t+'</div>';
+  h+='<div class="card"><div class="h"><div>'+T('தாமதக் காரணம்','Reason for late')+'</div></div>';
+  if(a.why)h+='<span class="pill g">✓ '+T('பதிவானது','Saved')+' — '+esc(whyL(a.why))+'</span></div>';
+  else{h+='<div class="sm" style="text-align:left;margin:0 0 6px">'+T('காரணம் அனுப்பிய பிறகே இன்றைய கவர் கணக்கு தெரியும்.','The cover count shows after you send the reason.')+'</div><select id="lwhy"><option value="">'+T('காரணம் தேர்வு செய்யவும்','Choose reason')+'</option>';
+   (v.why||[]).forEach(function(w,i){h+='<option value="'+esc(w)+'">'+esc(LANG==='en'?WHY_EN[i]:w)+'</option>'});
+   h+='</select><input id="lexp" maxlength="200" placeholder="'+T('விளக்கம் (மற்றவை என்றால் கட்டாயம்)','Details (must for Other)')+'"><button class="big y" id="bwhy">'+T('காரணம் அனுப்பு','Send reason')+'</button></div>'}}
+ if(a.t&&(!L||a.why))h+=delivCard(v,F,true);
+ else if(!a.t&&!a.off)h+='<div class="sm" style="margin:6px 18px">'+T('"வந்துவிட்டேன்" அழுத்திய பிறகு இன்றைய கவர் கணக்கு தெரியும்.','After "I have arrived", today\'s cover count shows here.')+'</div>';
+ $('att').innerHTML=h;
+ if($('bin'))$('bin').onclick=arrive;if($('bwhy'))$('bwhy').onclick=function(){sendWhy(F)};bindRef()}
+function bindRef(){[].forEach.call(document.querySelectorAll('[data-ref]'),function(e){e.onclick=function(){M('wait',T('புதுப்பிக்கிறது…','Refreshing…'));sync();setTimeout(function(){if($('msg').className.indexOf('wait')>=0)M()},2500)}});
+ [].forEach.call(document.querySelectorAll('[data-go]'),function(e){e.onclick=function(){tab(e.getAttribute('data-go'))}})}
+function staleBox(v){var d=v.deliv;
+ if(v.oldDay||(d.date&&d.date!==v.today))return'<div class="stale">⚠ '+T('இன்றைய பட்டியல் இன்னும் வரவில்லை — காட்டுவது முந்தைய பட்டியல். Signal உள்ள இடத்தில் ⟳ புதுப்பி.','Today\'s list has not come yet — showing the earlier list. Tap ⟳ where there is signal.')+'</div>';
+ if(d.err&&!d.date)return'<div class="stale">⚠ '+T('பால் கணக்கிலிருந்து விவரம் வரவில்லை — உரிமையாளரிடம் சொல்லுங்கள்.','Could not get details from the milk account — tell the owner.')+'</div>';
+ return''}
+function delivCard(v,F,withBtn){var d=v.deliv[F],h='<div class="card"><div class="h"><div>'+T('இன்றைய விநியோகம் — ','Today\'s delivery — ')+shL(F)+'</div><small data-ref="1">⟳ '+T('புதுப்பி','Refresh')+'</small></div>';
+ h+=staleBox(v);
+ if(!d){return h+'<div class="sm" style="text-align:left">'+T('இன்றைய விநியோக விவரம் இன்னும் தயாராகவில்லை.','Today\'s delivery details are not ready yet.')+'</div></div>'}
+ var pk=d.pk,tot=pk[0]+pk[1]+pk[2];
+ h+='<div class="cover"><div class="ttl">'+T('கவர் கணக்கு','Covers')+'</div><div class="cv"><div><b>'+pk[0]+'</b><span>1 '+T('லி','L')+'</span></div><div><b>'+pk[1]+'</b><span>0.7 '+T('லி','L')+'</span></div><div><b>'+pk[2]+'</b><span>0.5 '+T('லி','L')+'</span></div></div><div class="tot">'+T('மொத்தம் <b>'+tot+'</b> கவர்','Total <b>'+tot+'</b> covers')+'</div></div>';
+ if(F==='FN'){var vy=v.deliv.veh!==false;h+='<div class="veh '+(vy?'y':'n')+'">'+(vy?T('🛵 இன்று காலை டெலிவரிக்குப் பின் வண்டி கொண்டு போகலாம்','🛵 You may take the bike after the morning delivery'):T('🚫 இன்று காலை வண்டி கொண்டு போகக்கூடாது','🚫 Do not take the bike this morning'))+'</div>'}
+ h+=sections(d);
+ if(withBtn)h+='<button class="big t" data-go="run">▶ '+T('டெலிவரி பக்கம்','Go to delivery')+'</button>';
+ if(v.deliv.at)h+='<div class="upd">'+T('பட்டியல் நேரம் ','List time ')+hm(new Date(v.deliv.at))+'</div>';
+ return h+'</div>'}
+function sections(d){var chg=[],alt=[],swp=[],wo=[];
+ d.stops.forEach(function(s){var L=rtn(s);
+  if(s.k==='leave')chg.push('<div class="ln red">'+L+' — ✗ '+T('விடுப்பு','leave')+'</div>');
+  else if(s.k==='cancel')chg.push('<div class="ln red">'+L+' — ✗ '+T('ரத்து','cancelled')+'</div>');
+  else if(s.k==='down')chg.push('<div class="ln dn">'+L+' — '+qL(s.q)+' ⬇ ('+pkTxt(s.pk)+')</div>');
+  else if(s.k==='up')chg.push('<div class="ln up">'+L+' — '+qL(s.q)+' ⬆ ('+pkTxt(s.pk)+')</div>');
+  else if(s.k==='woyes')chg.push('<div class="ln up">'+L+' — '+qL(s.q)+' ✓ '+T('வார விடுமுறை நாள், இன்று உண்டு','weekly-off day, but today yes')+'</div>');
+  else if(s.k==='alt')alt.push('<div class="ln">'+L+' — '+qL(s.q)+'</div>');
+  else if(s.k==='swap')swp.push('<div class="ln">'+L+' — '+qL(s.q)+' ('+pkTxt(s.pk)+')</div>');
+  else if(s.k==='wo')wo.push('<div class="ln">'+L+'</div>')});
+ (d.moved||[]).forEach(function(m){wo.push('<div class="ln">'+rtn(m)+' ('+(m.to==='AN'?T('மாலையில்','in the evening'):T('காலையில்','in the morning'))+')</div>')});
+ var h='<div class="dl">';
+ if(chg.length)h+='<div class="hd">'+T('இன்று மாற்றம்','Changes today')+'</div>'+chg.join('')+'<div class="hd">'+T('மற்றவர்கள் எப்போதும் போல்','Others as usual')+'</div>';
+ else h+='<div class="ln up" style="font-weight:700">✓ '+T('இன்று எப்போதும் போல் முழு டெலிவரி. எந்த மாற்றமும் இல்லை.','Full delivery as usual. No changes today.')+'</div>';
+ if(swp.length)h+='<div class="hd">'+T('இன்று மட்டும் இந்த நேரம் — முதலில் இவர்கள்','Only today in this round — these first')+'</div>'+swp.join('');
+ if(alt.length)h+='<div class="hd">'+T('இன்று மாற்றி வாங்குபவர்','Alternate-day customers today')+'</div>'+alt.join('');
+ if(wo.length)h+='<div class="hd">'+T('இன்று வார விடுமுறை','Weekly off today')+'</div>'+wo.join('');
+ if(d.extra)h+='<div class="hd">'+T('கவனிக்க','Note')+'</div><div class="ln">'+esc(d.extra).replace(/\n/g,'<br>')+'</div>';
+ return h+'</div>'}
+function arrive(){var F=curShift(),m=mins(new Date());
+ if(m<180||m>=1320)return M('err',T('இது வருகை நேரம் அல்ல.','This is not attendance time.'));
+ if(!navigator.geolocation)return M('err',T('இந்த phone-ல் இருப்பிடம் இல்லை.','Location is not available on this phone.'));
+ M('wait',T('இருப்பிடம் பார்க்கிறது… (signal இல்லாவிட்டாலும் GPS வேலை செய்யும்)','Checking location… (GPS works even without signal)'));
+ navigator.geolocation.getCurrentPosition(function(p){var c=p.coords,cf=S.cfg;
+  if(cf.lat!=null){var dd=dist(cf.lat,cf.lng,c.latitude,c.longitude);if(dd>cf.radius+Math.min(c.accuracy||0,100))return M('err',T('பண்ணையில் இருந்து அழுத்தினால் மட்டுமே வருகை பதிவாகும் — நீங்கள் '+fmtN(dd)+' மீட்டர் தொலைவில் உள்ளீர்கள்.','Attendance works only at the farm — you are '+fmtN(dd)+' metres away.'))}
+  enq('in',{shift:F,lat:c.latitude,lng:c.longitude,acc:Math.round(c.accuracy||0)});
+  M('ok',T('✓ '+shL(F)+' வருகை பதிவானது — '+hm(new Date()),'✓ Arrival saved — '+hm(new Date()))+(navigator.onLine?'':T('\n📵 Signal வந்ததும் உரிமையாளருக்குப் போகும்.','\n📵 Will reach the owner when signal returns.')))},
+ function(){M('err',T('இருப்பிடம் கிடைக்கவில்லை. மொபைலில் Location-ஐ இயக்கி, அனுமதி கேட்டால் Allow கொடுத்து மீண்டும் தட்டவும்.','Location not found. Turn on Location, tap Allow when asked, and tap again.'))},
+ {enableHighAccuracy:true,timeout:25000,maximumAge:0})}
+function sendWhy(F){var w=$('lwhy').value,e=$('lexp').value.trim();
+ if(!w)return M('err',T('காரணம் தேர்வு செய்யவும்.','Choose a reason.'));
+ if(w==='மற்றவை'&&!e)return M('err',T('"மற்றவை" என்றால் விளக்கம் எழுதுவது கட்டாயம்.','For "Other", please write the details.'));
+ enq('why',{shift:F,why:w,exp:e});M('ok',T('✓ தாமதக் காரணம் பதிவானது.','✓ Reason saved.'))}
+
+/* ---------- டெலிவரி ---------- */
+function runShift(v){if(v.att.FN.b&&!v.att.FN.e)return'FN';if(v.att.AN.b&&!v.att.AN.e)return'AN';return curShift()}
+function rRun(v){var F=runShift(v),a=v.att[F],d=v.deliv[F],h='';
+ if(a.off&&!a.t){$('run').innerHTML='<div class="card"><div class="h"><div>'+shL(F)+'</div></div>'+T('இன்று இந்த நேரம் உங்களுக்கு விடுப்பு.','You are on leave for this round today.')+'</div>';return}
+ if(!a.t){$('run').innerHTML='<div class="card"><div class="h"><div>'+shL(F)+T(' டெலிவரி',' delivery')+'</div></div><div class="sm" style="text-align:left">'+T('முதலில் பண்ணையில் "வந்துவிட்டேன்" அழுத்தவும்.','First tap "I have arrived" at the farm.')+'</div><button class="big t" data-go="att">'+T('வருகைப் பக்கம்','Go to attendance')+'</button></div>';bindRef();return}
+ var L=lateInfo(v,F);
+ if(L&&!a.why){$('run').innerHTML='<div class="card">'+T('தாமதக் காரணம் அனுப்பிய பிறகே டெலிவரி பட்டியல் தெரியும்.','Send the reason for late first.')+'<button class="big y" data-go="att">'+T('காரணம் அனுப்ப','Send reason')+'</button></div>';bindRef();return}
+ if(!d){$('run').innerHTML='<div class="card"><div class="h"><div>'+shL(F)+'</div><small data-ref="1">⟳</small></div>'+staleBox(v)+T('இன்றைய பட்டியல் இன்னும் வரவில்லை.','Today\'s list has not come yet.')+'</div>';bindRef();return}
+ var give=d.stops.filter(function(s){return s.q>0}),none=d.stops.filter(function(s){return!(s.q>0)}),lg=v.dlog[F]||{};
+ var done=give.filter(function(s){return lg[s.id]}),pend=give.filter(function(s){return!lg[s.id]});
+ if(!a.b){
+  h+='<div class="card"><div class="h"><div>'+shL(F)+T(' டெலிவரி',' delivery')+'</div><small data-ref="1">⟳</small></div>'+staleBox(v);
+  h+='<div class="chips"><div><b>'+give.length+'</b><span>'+T('வீடுகள்','houses')+'</span></div><div><b>'+(d.pk[0]+d.pk[1]+d.pk[2])+'</b><span>'+T('கவர்','covers')+'</span></div></div>';
+  h+='<button class="big" id="bstart">▶ '+T('டெலிவரி தொடங்கு','Start delivery')+'<span class="s">'+T('பேக்கிங் முடிந்ததும்','when packing is done')+'</span></button></div>';
+  h+='<div class="card"><div class="h"><div>'+T('இன்றைய வரிசை','Today\'s order')+'</div></div><div class="lst">';
+  give.forEach(function(s){h+='<div class="row"><span class="ic p">○</span><span>'+rtn(s)+'</span><span class="q">'+esc(pkTxt(s.pk))+'</span></div>'});
+  h+='</div>'+noneList(none)+'</div>';
+  $('run').innerHTML=h;$('bstart').onclick=function(){enq('dstart',{shift:F});M()};bindRef();return}
+ if(a.e){$('run').innerHTML=bikeView(v,F,give.length,done.length);bindBike(F);bindRef();return}
+ var cur=null;pend.forEach(function(s){if(s.id===CUR[F])cur=s});if(!cur)cur=pend[0]||null;
+ var pc=give.length?Math.round(done.length*100/give.length):100;
+ h+='<div class="card"><div class="progt"><span>'+T('முடிந்தது ','Done ')+done.length+' / '+give.length+'</span><span>▶ '+esc(a.b)+'</span></div><div class="prog"><i style="width:'+pc+'%"></i></div>'+staleBox(v);
+ if(cur){
+  var tags='';if(cur.k==='down')tags+='<span class="tag dn">⬇ '+T('இன்று குறைவு','less today')+'</span>';if(cur.k==='up'||cur.k==='woyes')tags+='<span class="tag up">⬆ '+T('இன்று கூடுதல்','more today')+'</span>';
+  if(cur.k==='alt')tags+='<span class="tag alt">'+T('மாற்றி வாங்குபவர்','alternate day')+'</span>';if(cur.k==='swap')tags+='<span class="tag sw">'+T('இன்று மட்டும் இந்த நேரம்','only today in this round')+'</span>';
+  h+='<div class="stop"><div class="nx">'+T('அடுத்து','NEXT')+'</div><div class="nmx">'+rtn(cur)+'</div><div class="pkbig">'+esc(pkTxt(cur.pk))+'</div><div class="sm" style="text-align:left;margin:0">'+qL(cur.q)+'</div>'+tags;
+  if(cur.note)h+='<div class="onote">📝 '+esc(cur.note)+'</div>';
+  if(cur.ph)h+='<img class="ph" src="'+esc(cur.ph)+'" loading="lazy" onerror="this.style.display=\'none\'">';
+  if(ISS===cur.id){h+='<div class="iss" style="margin-top:10px">';(v.issues||[]).forEach(function(w,i){h+='<label><input type="radio" name="iw" value="'+esc(w)+'">'+esc(issL(w))+'</label>'});
+   h+='<input id="inote" maxlength="200" placeholder="'+T('குறிப்பு (விருப்பம்)','Note (optional)')+'"><div class="two"><button class="big y" id="bisend">'+T('அனுப்பு','Send')+'</button><button class="big w" id="bicancel">'+T('வேண்டாம்','Cancel')+'</button></div></div>'}
+  else h+='<div class="two"><button class="big" id="bdone">✓ '+T('கொடுத்தேன்','Delivered')+'</button><button class="big y" id="biss" style="flex:.7">⚠ '+T('பிரச்சினை','Problem')+'</button></div>';
+  h+='<div class="links">';if(cur.lat!=null)h+='<button class="lk" id="bnav">📍 '+T('வழி காட்டு','Directions')+'</button>';
+  h+='<button class="lk" id="bmark">'+(v.dlog.mk[cur.id]||cur.mk?'⏳ ':'📍 ')+T('இந்த வீட்டைக் குறி','Mark this house')+'</button></div></div>';
+  var nx=pend.filter(function(s){return s.id!==cur.id}).slice(0,3);
+  if(nx.length)h+='<div class="sm" style="text-align:left">'+T('பிறகு: ','Then: ')+nx.map(function(s){return esc(s.rt+' - '+s.n)}).join(' · ')+'</div>'}
+ else h+='<div class="thanks">✓ '+T('எல்லா வீடுகளும் முடிந்தன. கீழே "டெலிவரி முடிந்தது" அழுத்தவும்.','All houses done. Tap "Delivery finished" below.')+'</div>';
+ h+='<button class="big t" id="bend">✔ '+T('டெலிவரி முடிந்தது','Delivery finished')+'</button></div>';
+ h+='<div class="card"><div class="h"><div>'+T('எல்லா வீடுகளும்','All houses')+'</div></div><div class="lst">';
+ give.forEach(function(s){var g=lg[s.id],ic=g?(g.a==='done'?'<span class="ic d">✓</span>':'<span class="ic i">!</span>'):(cur&&s.id===cur.id?'<span class="ic c">▶</span>':'<span class="ic p">○</span>');
+  h+='<div class="row'+(cur&&s.id===cur.id?' cur':'')+'" data-sid="'+esc(s.id)+'">'+ic+'<span>'+rtn(s)+(g&&g.a==='issue'?'<br><small style="color:var(--amber)">⚠ '+esc(issL(g.why||''))+'</small>':'')+'</span><span class="q">'+esc(pkTxt(s.pk))+'</span></div>'});
+ h+='</div>'+noneList(none)+'</div>';
+ $('run').innerHTML=h;bindRef();
+ if(cur){if($('bdone'))$('bdone').onclick=function(){enq('stop',{shift:F,id:cur.id,n:cur.n,rt:cur.rt,a:'done'});CUR[F]=null;window.scrollTo(0,0)};
+  if($('biss'))$('biss').onclick=function(){ISS=cur.id;rRun(view())};
+  if($('bicancel'))$('bicancel').onclick=function(){ISS=null;rRun(view())};
+  if($('bisend'))$('bisend').onclick=function(){var r=document.querySelector('input[name=iw]:checked');if(!r)return M('err',T('பிரச்சினை என்ன என்று தேர்வு செய்யவும்.','Choose the problem.'));
+   var nt=$('inote').value.trim();if(r.value==='மற்றவை'&&!nt)return M('err',T('"மற்றவை" என்றால் குறிப்பு எழுதவும்.','For "Other", write a note.'));
+   enq('stop',{shift:F,id:cur.id,n:cur.n,rt:cur.rt,a:'issue',why:r.value,note:nt});ISS=null;CUR[F]=null;M('warn',T('⚠ பதிவானது — உரிமையாளருக்குத் தெரிவிக்கப்படும்.','⚠ Saved — the owner will be told.'))};
+  if($('bnav'))$('bnav').onclick=function(){window.open('https://www.google.com/maps/dir/?api=1&destination='+cur.lat+','+cur.lng+'&travelmode=two-wheeler','_blank')};
+  if($('bmark'))$('bmark').onclick=function(){openMark(cur)}}
+ $('bend').onclick=function(){var n=pend.length;if(n&&!confirm(T('இன்னும் '+n+' வீடுகள் குறிக்கவில்லை. டெலிவரியை முடிக்கவா?',n+' houses are not marked yet. Finish the delivery?')))return;enq('dend',{shift:F});window.scrollTo(0,0)};
+ [].forEach.call(document.querySelectorAll('[data-sid]'),function(e){e.onclick=function(){var id=e.getAttribute('data-sid'),g=lg[id];
+  if(g){var s=give.filter(function(x){return x.id===id})[0];if(confirm(T(s.rt+' - '+s.n+' — மீண்டும் குறிக்கவா?','Mark '+s.rt+' - '+s.n+' again?')))enq('stop',{shift:F,id:id,n:s.n,rt:s.rt,a:'undo'});return}
+  CUR[F]=id;ISS=null;rRun(view());window.scrollTo(0,0)}})}
+function noneList(none){if(!none.length)return'';var h='<details><summary>'+T('இன்று கொடுக்க வேண்டாம் ','Not today ')+'('+none.length+')</summary><div class="lst">';
+ none.forEach(function(s){var w=s.k==='leave'?T('விடுப்பு','leave'):s.k==='cancel'?T('ரத்து','cancelled'):s.k==='wo'?T('வார விடுமுறை','weekly off'):T('மாற்றி வாங்குபவர் — இன்று இல்லை','alternate day — not today');
+  h+='<div class="row" style="cursor:default"><span class="ic p">–</span><span style="color:var(--mute)">'+rtn(s)+'</span><span class="q">'+esc(w)+'</span></div>'});return h+'</div></details>'}
+
+/* ---------- வண்டி ---------- */
+function bikeView(v,F,n,dn){var a=v.att[F],c=v.cfg,h='<div class="card"><div class="h"><div>✔ '+shL(F)+T(' டெலிவரி முடிந்தது',' delivery finished')+'</div></div>';
+ var b=tmin(a.b,F==='AN'),e=tmin(a.e,F==='AN');h+='<div class="sm" style="text-align:left;margin:0 0 10px">'+T('முடிவு ','Finished ')+esc(a.e)+(b!=null&&e!=null?' · '+T('டெலிவரி ','delivery ')+dur(e-b):'')+' · '+dn+' / '+n+'</div>';
+ var thx=F==='FN'?T('காலையில் டெலிவரி செய்ததற்கு நன்றி. மீண்டும் மாலை சந்திப்போம்.','Thank you for the morning delivery. See you again in the evening.'):T('மாலையில் டெலிவரி செய்ததற்கு நன்றி. மீண்டும் நாளை காலை சந்திப்போம்.','Thank you for the evening delivery. See you again tomorrow morning.');
+ var back=F==='FN'?T('நன்றி. மாலை பணி நேரம் '+hh(c.anStart)+'-க்குள் பணிக்குத் திரும்பிடுங்கள்.','Thank you. Please be back for work by '+h12(c.anStart)+' this evening.'):T('நன்றி. நாளை காலை பணி நேரம் '+hh(c.fnStart)+'-க்குள் பணிக்குத் திரும்பிடுங்கள்.','Thank you. Please be back for work by '+h12(c.fnStart)+' tomorrow morning.');
+ if(F==='FN'&&v.deliv.veh===false)return h+'<div class="veh n">🚫 '+T('இன்று காலை வண்டியைக் கொண்டு செல்லக்கூடாது — பண்ணையிலேயே நிறுத்திவிடுங்கள்.','Do not take the bike this morning — leave it at the farm.')+'</div><div class="thanks">'+thx+'</div></div>';
+ if(a.bike==='yes')return h+'<div class="thanks">🛵 '+back+'<br>'+thx+'</div></div>';
+ if(a.bike==='no')return h+'<div class="thanks">'+thx+'</div></div>';
+ var nxt=F==='FN'?T('மாலை நேரத்தில்','in the evening'):T('நாளை காலை','tomorrow morning');
+ var w=T('நீங்கள் நிறுவனத்தின் மின்சார இருசக்கர வாகனத்தைக் கொண்டு செல்கிறீர்கள். அதற்குத் தேவைப்படும் பேட்டரி சார்ஜை நீங்களே நிரப்பிக்கொள்ள வேண்டும். மிகக் கவனத்துடன் வாகனத்தைக் கையாளுங்கள்.<br><br>'+nxt+' பணிக்கு வர மாட்டேன் என்று சிறிதும் சந்தேகம் இருந்தாலும் வாகனத்தைக் கொண்டு செல்லாதீர்கள். நீங்கள் வரவில்லை என்றால், அன்றைய பால் டெலிவரிக்குத் தேவைப்படும் எரிபொருள் செலவையும், இந்த வண்டி இல்லாததால் நிறுவனத்தின் வேறு வேலைகளுக்கு ஆகும் எரிபொருள் செலவையும் நீங்களே ஈடு கட்ட வேண்டும்.<br><br>ஆகவே உறுதியாகத் தெரிந்தால் மட்டுமே வாகனத்தைக் கொண்டு செல்லுங்கள்.',
+  'You are taking the company\'s electric two-wheeler. You must charge its battery yourself. Handle the vehicle with great care.<br><br>If you have even a small doubt that you may not come to work '+nxt+', do not take the vehicle. If you do not come, you must pay the fuel cost for that day\'s milk delivery and the fuel cost for the company\'s other work done without this vehicle.<br><br>So take the vehicle only if you are sure.');
+ if(v.offNext[F])w+='<br><br>⚠ '+T(nxt+' உங்களுக்கு விடுப்பு — வண்டியைக் கொண்டு சென்றால் எரிபொருள் செலவு பிடிக்கப்படும்.','You are on leave '+nxt+' — if you take the bike, fuel cost will be deducted.');
+ h+='<div class="h" style="margin-top:4px"><div>🛵 '+T('வண்டி நிலை','Bike')+'</div></div><div class="bikew">'+w+'</div>';
+ h+='<div class="bikeq">'+T('இவற்றுக்குச் சம்மதம் தெரிவித்துக் கொள்கிறீர்களா?','Do you agree to all of this?')+'</div>';
+ h+='<div class="two"><button class="big" id="byes">'+T('ஆம்','Yes')+'<span class="s">'+T('வண்டியைக் கொண்டு செல்கிறேன்','I am taking the bike')+'</span></button><button class="big rd" id="bno">'+T('இல்லை','No')+'<span class="s">'+T('வண்டி பண்ணையில்','bike stays at the farm')+'</span></button></div>';
+ return h+'</div>'}
+function bindBike(F){if($('byes'))$('byes').onclick=function(){enq('bike',{shift:F,ans:'yes'});window.scrollTo(0,0)};if($('bno'))$('bno').onclick=function(){enq('bike',{shift:F,ans:'no'});window.scrollTo(0,0)}}
+
+/* ---------- வீட்டைக் குறி ---------- */
+function openMark(s){MK={s:s,lat:null,lng:null,acc:null,img:''};rMark();$('mk').className='sheet on'}
+function closeMark(){$('mk').className='sheet';MK=null}
+function rMark(){if(!MK)return;var h='<h4>📍 '+esc(MK.s.rt+' - '+MK.s.n)+'</h4><div class="sm" style="text-align:left;margin:0 0 8px">'+T('வீட்டு வாசலில் நின்று இருப்பிடம் எடுக்கவும். படம் — வீட்டின் முன்பக்கம் தெரியும்படி.','Stand at the gate and take the location. Photo — show the front of the house.')+'</div>';
+ h+='<button class="big t" id="mgps">📍 '+(MK.lat!=null?T('இருப்பிடம் ✓ ±','Location ✓ ±')+MK.acc+T(' மீ — மீண்டும் எடு',' m — take again'):T('இருப்பிடம் எடு','Take location'))+'</button>';
+ if(MK.acc!=null&&MK.acc>30)h+='<div class="redbox">'+T('துல்லியம் குறைவு (±'+MK.acc+' மீ). சற்று திறந்த இடத்தில் நின்று மீண்டும் எடுக்கவும்.','Low accuracy (±'+MK.acc+' m). Stand in an open place and take again.')+'</div>';
+ h+='<label class="big w" style="margin-top:12px">📷 '+(MK.img?T('படம் ✓ — மீண்டும் எடு','Photo ✓ — take again'):T('படம் எடு','Take photo'))+'<input type="file" accept="image/*" capture="environment" id="mfile" style="display:none"></label>';
+ if(MK.img)h+='<img class="prev" src="data:image/jpeg;base64,'+MK.img+'">';
+ h+='<div class="two"><button class="big" id="msend" '+(MK.lat==null&&!MK.img?'disabled':'')+'>'+T('அனுப்பு','Send')+'</button><button class="big w" id="mclose">'+T('மூடு','Close')+'</button></div>';
+ h+='<div class="sm">'+T('உரிமையாளர் ஒப்புதலுக்குப் பிறகே சேமிக்கப்படும்.','Saved after the owner approves.')+'</div>';
+ $('mkin').innerHTML=h;
+ $('mclose').onclick=closeMark;
+ $('mgps').onclick=function(){M();$('mgps').textContent=T('⏳ இருப்பிடம் பார்க்கிறது…','⏳ Getting location…');
+  navigator.geolocation.getCurrentPosition(function(p){MK.lat=p.coords.latitude;MK.lng=p.coords.longitude;MK.acc=Math.round(p.coords.accuracy||0);rMark()},
+   function(){alert(T('இருப்பிடம் கிடைக்கவில்லை — Location-ஐ இயக்கவும்.','Location not found — turn on Location.'));rMark()},{enableHighAccuracy:true,timeout:25000,maximumAge:0})};
+ $('mfile').onchange=function(ev){var f=ev.target.files&&ev.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){
+   var W=720,sc=Math.min(1,W/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);
+   cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);MK.img=cv.toDataURL('image/jpeg',0.62).split(',')[1];rMark()};im.src=rd.result};rd.readAsDataURL(f)};
+ $('msend').onclick=function(){var s=MK.s,p={shift:runShift(view()),id:s.id,n:s.n,rt:s.rt};if(MK.lat!=null){p.lat=MK.lat;p.lng=MK.lng;p.acc=MK.acc}if(MK.img)p.img=MK.img;
+  enq('mark',p);closeMark();M('ok',T('✓ அனுப்பப்பட்டது — உரிமையாளர் ஒப்புதலுக்குக் காத்திருக்கிறது.','✓ Sent — waiting for the owner\'s approval.'))}}
+
+/* ---------- என் பதிவு ---------- */
+function rRec(v){[].forEach.call($('recm').children,function(s){var k=s.getAttribute('data-v');s.textContent=k==='cur'?T('இம்மாதம்','This month'):T('கடந்த மாதம்','Last month');s.className=k===RECM?'on':''});
+ var R=RECM==='cur'?v.rec:(v.recPrev||RECP);
+ if(!R){$('rec').innerHTML='<div class="card"><div class="sm">'+(RECM==='prev'?T('கடந்த மாதப் பதிவு இல்லை / இணையம் தேவை.','No record for last month / needs internet.'):'—')+'</div></div>';return}
+ var c=v.cfg,h='<div class="card"><div class="h"><div>'+esc(T(R.label,R.labelEn))+'</div><small data-ref="1">⟳</small></div><div class="chips"><div><b>'+R.nFN+'</b><span>'+T('காலை வந்தது','Mornings')+'</span></div><div><b>'+R.nAN+'</b><span>'+T('மாலை வந்தது','Evenings')+'</span></div></div>';
+ R.el.forEach(function(e){if(!e.live&&!e.done)return;var pay='₹'+R.elPay+' + ₹'+R.bonusH;
+  if(e.done)h+='<div class="el '+(e.ok?'g':'r')+'">'+e.h+': '+(e.ok?T('✓ ஈட்டிய விடுப்புச் சம்பளம் + போனஸ் ','✓ Earned-leave pay + bonus ')+pay:T('சலுகை இல்லை — ','No benefit — ')+esc(e.why))+'</div>';
+  else if(e.ok)h+='<div class="el g">'+T('✓ இந்த அரை மாதம் ('+e.h+') இதுவரை விடுப்பு இல்லை. மீதி '+e.left+' நாளும் தொடர்ந்து வந்தால் ஈட்டிய விடுப்புச் சம்பளம் + வருகை போனஸ் '+pay+' கிடைக்கும்.','✓ This half ('+e.h+'): no leave so far. Keep coming for the remaining '+e.left+' days to get earned-leave pay + bonus '+pay+'.')+'</div>';
+  else h+='<div class="el r">'+T('இந்த அரை மாதம் ('+e.h+') சலுகை இல்லை — ','This half ('+e.h+'): no benefit — ')+esc(e.why)+'</div>'});
+ h+='</div>';
+ if(R.slip){var L=R.slip[LANG]||R.slip.ta;h+='<div class="card slip"><div class="h"><div>💰 '+T('சம்பளம் — ','Salary — ')+esc(T(R.label,R.labelEn))+'</div></div>';
+  L.forEach(function(x){h+='<div class="a'+(x.b===2?' net':x.b?' t':x.v<0?' n':'')+'"><span>'+esc(x.t)+'</span><b>'+(x.v<0?'− ':'')+'₹'+fmtN(Math.abs(x.v))+'</b></div>'});h+='</div>'}
+ h+='<div class="card"><div class="h"><div>'+T('நாள்வாரி','Day by day')+'</div></div>';
+ if(!R.days.length)h+='<div class="sm">—</div>';
+ var p=R.key.split('-');
+ R.days.forEach(function(x){var dt=new Date(+p[0],+p[1]-1,x.d);
+  h+='<div class="day"><div class="dh"><span>'+p2(x.d)+'/'+p[1]+'/'+p[0]+' · '+(LANG==='en'?WEN:WTA)[dt.getDay()]+'</span>'+(x.ok?'<span class="pill g">✓ '+T('உறுதி','Confirmed')+'</span>':'<span class="pill p">⏳ '+T('சரிபார்ப்பில்','Checking')+'</span>')+'</div>';
+  ['FN','AN'].forEach(function(F){var s=x[F],t;
+   if(s.st==='P'){t='<b>'+shL(F)+'</b> · '+T('வருகை ','in ')+esc(s.t);if(s.w!=null)t+=' · '+T('காத்திருப்பு ','wait ')+dur(s.w);if(s.pk!=null)t+=' · '+T('பேக்கிங் ','packing ')+dur(s.pk);if(s.dl!=null)t+=' · '+T('டெலிவரி ','delivery ')+dur(s.dl);
+    if(s.late)t+='<div class="lt2">⏰ '+T('தாமதம் ','Late ')+s.late+T(' நிமி',' min')+(s.why?' ('+esc(whyL(s.why))+')':'')+'</div>'}
+   else if(s.st)t='<b>'+shL(F)+'</b> · '+esc(stL(s.st));else t='<b>'+shL(F)+'</b> · —';
+   h+='<div class="sl">'+t+'</div>'});
+  if(x.m){var z=[];if(x.m.late)z.push(T('தாமத அபராதம் ','Late fine ')+'₹'+x.m.late);if(x.m.una)z.push(T('விடுப்பு அபராதம் ','Leave fine ')+'₹'+x.m.una);
+   if(x.m.fuel)z.push(T('எரிபொருள் ','Fuel ')+'₹'+x.m.fuel);if(x.m.plus)z.push(T('சலுகை (பண்ணை தாமதம்) ','Concession (farm delay) ')+'₹'+x.m.plus);
+   h+='<div class="mm">'+(z.length?z.join(' · '):T('அபராதம் இல்லை ✓','No fines ✓'))+((x.m.late||x.m.una||x.m.plus)&&!R.active?'<br><small>'+T('(அபராதம் / சலுகை '+esc(c.pen)+' முதல் கணக்கில்)','(fines / concession count from '+esc(c.penEn)+')')+'</small>':'')+'</div>'}
+  h+='</div>'});
+ $('rec').innerHTML=h+'</div>';bindRef()}
+function stL(s){var m={'அனுமதியுடன்':['விடுப்பு (அனுமதியுடன்)','Leave (approved)'],'ஈட்டிய விடுப்பு':['ஈட்டிய விடுப்பு','Earned leave'],'அனுமதியின்றி':['அனுமதியின்றி விடுப்பு','Leave without permission'],'?':['பதிவு இல்லை','No record']};return m[s]?T(m[s][0],m[s][1]):s}
+function loadPrev(){if(!S||S.recPrev)return;var k=S.today.split('-'),d=new Date(+k[0],+k[1]-2,1),key=d.getFullYear()+'-'+p2(d.getMonth()+1);
+ RECP=ls('recp');if(RECP&&RECP.key!==key)RECP=null;rRec(view());
+ post('rec',{key:key,lang:LANG}).then(function(r){RECP=r;ls('recp',r);rRec(view())}).catch(function(){})}
+
+/* ---------- கோரிக்கை ---------- */
+function setType(v){RTYPE=v;seg('rtype',v);var lt=v==='LT',el=v==='EL';
+ $('w_part').style.display=el?'none':'block';$('w_full').style.display=el?'block':'none';$('w_lt').style.display=lt?'block':'none';
+ $('ltred').style.display=lt?'block':'none';$('rpart').children[2].style.display=lt?'none':'block';if(lt&&RPART==='FD')setPart('');
+ $('l_note').textContent=lt?T('விளக்கம் (மற்றவை என்றால் கட்டாயம்)','Details (must for Other)'):T('குறிப்பு (விருப்பம்)','Note (optional)');
+ $('rhint').textContent=S&&S.hints?'⚠ '+S.hints[LANG][v]:'';
+ $('breq').textContent=lt?T('தாமத அறிவிப்பு அனுப்பு','Send late notice'):T('கோரிக்கை அனுப்பு','Send request');ltTo()}
+function setPart(v){RPART=v;seg('rpart',v);ltTo()}
+function setMins(v){RMINS=Number(v);seg('rmins',v);ltTo()}
+function ltTo(){var t=$('ltto');if(RTYPE!=='LT'||!RMINS||!RPART||!S){t.textContent='';return}var tm=h12((RPART==='FN'?S.hints.fnStart:S.hints.anStart)+RMINS);
+ t.textContent='→ '+T(shL(RPART)+' '+tm+' மணிக்குள் பண்ணையில் இருப்பீர்கள்','You will be at the farm by '+tm)}
+function seg(id,v){[].forEach.call($(id).children,function(s){s.className=s.getAttribute('data-v')===String(v)?'on':''})}
+function bindSeg(id,fn){[].forEach.call($(id).children,function(s){s.onclick=function(){fn(s.getAttribute('data-v'))}})}
+function sendReq(){var d=$('rdate').value,p=RTYPE==='EL'?'FD':RPART,n=$('rnote').value.trim(),w=$('rwhy').value;
+ if(!d)return M('err',T('தேதி தேர்வு செய்யவும்.','Choose the date.'));
+ if(!p)return M('err',RTYPE==='LT'?T('காலை / மாலை தேர்வு செய்யவும்.','Choose Morning / Evening.'):T('காலை / மாலை / முழுநாள் தேர்வு செய்யவும்.','Choose Morning / Evening / Full day.'));
+ if(RTYPE==='LT'){if(!RMINS)return M('err',T('எவ்வளவு நேரம் தாமதம் என்று தேர்வு செய்யவும்.','Choose how late you will be.'));if(!w)return M('err',T('காரணம் தேர்வு செய்யவும்.','Choose a reason.'));
+  if(w==='மற்றவை'&&!n)return M('err',T('"மற்றவை" என்றால் விளக்கம் எழுதுவது கட்டாயம்.','For "Other", please write the details.'))}
+ act('req',{type:RTYPE,date:d,part:p,mins:RMINS,why:w,note:n},function(r){if(r.ok)$('rnote').value=''})}
+function owner(r){return r?'<div class="rep">💬 '+T('உரிமையாளர்: ','Owner: ')+esc(r)+'</div>':''}
+function wdBtn(id){return'<button class="mini" data-wd="'+esc(id)+'">↩ '+T('திரும்பப் பெறு','Withdraw')+'</button>'}
+function rReq(v){[].forEach.call($('reqm').children,function(s){var k=s.getAttribute('data-v');s.textContent=k==='lv'?T('விடுப்பு / தாமதம்','Leave / Late'):T('முன்பணம்','Advance');s.className=k===REQM?'on':''});
+ $('w_lv').style.display=REQM==='lv'?'block':'none';$('w_adv').style.display=REQM==='adv'?'block':'none';
+ var h='';if(!v.reqs.length)h='<div class="sm" style="text-align:left">'+T('கோரிக்கைகள் இல்லை.','No requests.')+'</div>';
+ v.reqs.forEach(function(q){var d=DEC[q.dec];h+='<div class="rq"><div class="t"><span>'+esc(T(q.title,q.titleEn))+'</span><span class="pill '+d[1]+'">'+T(d[0][0],d[0][1])+'</span></div>';
+  q.flag.forEach(function(f){if(FLAG[f])h+='<div class="fl">'+T(FLAG[f][0],FLAG[f][1])+'</div>'});h+=owner(q.rep);if(q.dec==='wait')h+=wdBtn(q.id);h+='</div>'});
+ $('rlist').innerHTML=h;var nb=$('nb');if(v.pend){nb.textContent=v.pend;nb.style.display='flex'}else nb.style.display='none';
+ $('w_emg').style.display=v.advLeft<=0?'flex':'none';
+ $('ahint').innerHTML=T('⚠ குறைந்தது <b>1 நாள் முன்பு</b> கோரிக்கை வைக்கவும் · மாதம் <b>'+v.advMax+' முறை</b> மட்டும் — இம்மாதம் மீதம் <b>'+v.advLeft+'</b>'+(v.advLeft<=0?'<br>மிக அவசரம் என்றால் மட்டும் "அவசரம்" தேர்வு செய்து காரணம் எழுதவும்.':''),
+  '⚠ Ask at least <b>1 day before</b> · Only <b>'+v.advMax+' times</b> a month — left this month: <b>'+v.advLeft+'</b>'+(v.advLeft<=0?'<br>Only for a real emergency, tick "Emergency" and write the reason.':''));
+ h='';if(!v.advs.length)h='<div class="sm" style="text-align:left">'+T('கோரிக்கைகள் இல்லை.','No requests.')+'</div>';
+ v.advs.forEach(function(a){var d=DEC[a.dec],gm=a.got==='ரொக்கம்'?T('ரொக்கம்','Cash'):a.got;
+  h+='<div class="rq"><div class="t"><span><b>₹'+a.amt+'</b> · '+T('தேவை ','needed ')+esc(T(a.need,a.needEn))+(a.emg?' 🚨':'')+'</span><span class="pill '+d[1]+'">'+(a.dec==='got'?T('✓ பெற்றது — ','✓ Received — ')+esc(gm):T(d[0][0],d[0][1]))+'</span></div>'+owner(a.rep);
+  if(a.dec==='ok')h+='<div class="seg" style="margin-top:9px"><span data-got="'+esc(a.id)+'|Digital">'+T('பெற்றேன் — Digital','Received — Digital')+'</span><span data-got="'+esc(a.id)+'|ரொக்கம்">'+T('பெற்றேன் — ரொக்கம்','Received — Cash')+'</span></div>';
+  if(a.dec==='wait')h+=wdBtn(a.id);h+='</div>'});
+ $('alist').innerHTML=h;h='';
+ if(!v.got.length)h='<div class="sm" style="text-align:left">'+T('இம்மாதம் முன்பணம் இல்லை.','No advance this month.')+'</div>';
+ v.got.forEach(function(g){h+='<div class="a"><span>'+esc(g.d)+' · '+esc(g.mode==='ரொக்கம்'?T('ரொக்கம்','Cash'):(g.mode||'—'))+'</span><span>₹'+g.amt+'</span></div>'});
+ if(v.got.length)h+='<div class="tot2"><span>'+T('மொத்தம்','Total')+'</span><span>₹'+v.gotSum+'</span></div>';
+ $('glist').innerHTML=h;
+ [].forEach.call(document.querySelectorAll('[data-wd]'),function(e){e.onclick=function(){if(confirm(T('இந்தக் கோரிக்கையைத் திரும்பப் பெறவா?','Withdraw this request?')))act('wd',{id:e.getAttribute('data-wd')})}});
+ [].forEach.call(document.querySelectorAll('[data-got]'),function(e){e.onclick=function(){var x=e.getAttribute('data-got').split('|');if(confirm(T('பணம் பெற்றீர்களா? ('+x[1]+')','Did you receive the money? ('+(x[1]==='ரொக்கம்'?'Cash':x[1])+')')))act('got',{id:x[0],mode:x[1]})}});
+ $('rdate').min=v.today;$('adate').min=v.today;if(!$('adate').value)$('adate').value=v.tomorrow}
+function sendAdv(){var a=Number($('aamt').value),d=$('adate').value,w=$('awhy').value.trim(),e=$('aemg').checked;
+ if(!(a>0))return M('err',T('தொகை போடவும்.','Enter the amount.'));if(!d)return M('err',T('தேவைப்படும் தேதி தேர்வு செய்யவும்.','Choose the date you need it.'));
+ if(S.advLeft<=0&&!e)return M('err',T('இம்மாதம் '+S.advMax+' முன்பணக் கோரிக்கைகள் முடிந்துவிட்டன. மிக அவசரம் என்றால் "அவசரம்" தேர்வு செய்து காரணம் எழுதவும்.','This month\'s '+S.advMax+' advance requests are used. Only for a real emergency, tick "Emergency" and write the reason.'));
+ if(e&&!w)return M('err',T('அவசரக் காரணம் எழுதுவது கட்டாயம்.','Emergency reason is a must.'));
+ act('adv',{amt:a,date:d,why:w,emg:e},function(r){if(r.ok){$('aamt').value='';$('awhy').value='';$('aemg').checked=false}})}
+function reqLabels(){var L={t_newreq:['புதிய கோரிக்கை','New request'],l_date:['தேதி','Date'],l_shift:['நேரம்','Shift'],w_full:['முழுநாள் மட்டும் (காலை + மாலை)','Full day only (morning + evening)'],
+ l_howlate:['எவ்வளவு நேரம் தாமதம்?','How late?'],l_reason:['காரணம்','Reason'],ltred:['இதற்கு மேல் தாமதமானால் நம்முடைய வாடிக்கையாளர் வருந்துவர். தயவுசெய்து அதற்கு முன்னமே உங்கள் வேலைகளை முடித்து விடுங்கள்.','Any later and our customers will be upset. Please finish your other work before that.'],
+ t_myreq:['என் கோரிக்கைகள்','My requests'],t_advreq:['முன்பணக் கோரிக்கை','Advance request'],l_need:['தேவைப்படும் தேதி','Needed on'],l_emg:['🚨 அவசரம் (காரணம் கட்டாயம்)','🚨 Emergency (reason is a must)'],
+ badv:['கோரிக்கை அனுப்பு','Send request'],t_areqs:['கோரிக்கைகள்','Requests'],t_gotm:['இம்மாதம் பெற்ற முன்பணம்','Received this month']};
+ Object.keys(L).forEach(function(k){$(k).textContent=T(L[k][0],L[k][1])});
+ var R={LV:['விடுப்பு','Leave'],EL:['ஈட்டிய விடுப்பு','Earned leave'],SK:['உடல்நலக் குறைவு','Sick leave'],LT:['தாமத அறிவிப்பு','Late notice']};
+ [].forEach.call($('rtype').children,function(s){var k=s.getAttribute('data-v');s.textContent=T(R[k][0],R[k][1])});
+ var P={FN:['காலை','Morning'],AN:['மாலை','Evening'],FD:['முழுநாள்','Full day']};[].forEach.call($('rpart').children,function(s){var k=s.getAttribute('data-v');s.textContent=T(P[k][0],P[k][1])});
+ [].forEach.call($('rmins').children,function(s){var k=s.getAttribute('data-v');s.textContent=k==='60'?T('1 மணி','1 hour'):k+T(' நிமி',' min')});
+ $('aamt').placeholder=T('தொகை ₹','Amount ₹');$('awhy').placeholder=T('காரணம் (விருப்பம்)','Reason (optional)');
+ var o='<option value="">'+T('காரணம் தேர்வு செய்யவும்','Choose reason')+'</option>';(S&&S.why||[]).forEach(function(w,i){o+='<option value="'+esc(w)+'">'+esc(LANG==='en'?WHY_EN[i]:w)+'</option>'});
+ var cur=$('rwhy').value;$('rwhy').innerHTML=o;$('rwhy').value=cur;setType(RTYPE)}
+
+/* ---------- பொது ---------- */
+function rNav(){var L={att:['வருகை','Attendance'],run:['டெலிவரி','Delivery'],rec:['என் பதிவு','My record'],req:['கோரிக்கை','Requests'],rule:['விதிகள்','Rules']};
+ [].forEach.call($('nav').children,function(a){var t=a.getAttribute('data-t');a.querySelector('b').textContent=T(L[t][0],L[t][1]);a.className=t===TAB?'on':''})}
+function tab(t,dir){var a=ORDER.indexOf(TAB),b=ORDER.indexOf(t);dir=dir||(b>a?'R':'L');TAB=t;
+ ORDER.forEach(function(x){$('s_'+x).className='sec'+(x===t?' on in'+dir:'')});rNav();M();window.scrollTo(0,0);
+ if(t==='rec'&&RECM==='prev')loadPrev()}
+var LASTK='';
+function renderAll(){rHead();renderNet();rNav();LASTK=ymd(new Date())+curShift();var v=view();if(!v)return;
+ rAtt(v);rRun(v);rRec(v);rReq(v);$('rules').innerHTML=v.rules?(v.rules[LANG]||v.rules.ta):'';seg('lt',LANG)}
+function setLang(l){LANG=l;ls('lang',l);document.documentElement.lang=l;reqLabels();renderAll()}
+(function(){var x0=null,y0=0,t0=0;
+ document.addEventListener('touchstart',function(e){var g=e.target;if(g.closest&&g.closest('input,select,textarea,.nav,.lt,.sheet,.lst,details'))return x0=null;x0=e.touches[0].clientX;y0=e.touches[0].clientY;t0=Date.now()},{passive:true});
+ document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
+  if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6||Date.now()-t0>800)return;var i=ORDER.indexOf(TAB)+(dx<0?1:-1);if(i>=0&&i<ORDER.length)tab(ORDER[i],dx<0?'R':'L')},{passive:true})})();
+function boot(){
+ var m=location.hash.match(/k=([A-Za-z0-9]+)/);if(m){ls('k',m[1]);try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+ K=ls('k')||'';LANG=ls('lang')==='en'?'en':'ta';S=ls('st');Q=ls('q')||[];
+ if(!K){document.body.innerHTML='<div class="gate">'+(LANG==='en'?'This app needs the link sent by the owner.<br>Please open that link once.':'இந்த app-க்கு உரிமையாளர் அனுப்பிய இணைப்பு தேவை.<br>அந்த இணைப்பை ஒருமுறை திறக்கவும்.')+'</div>';return}
+ [].forEach.call($('nav').children,function(a){a.onclick=function(){tab(a.getAttribute('data-t'))}});
+ bindSeg('lt',setLang);bindSeg('rtype',setType);bindSeg('rpart',setPart);bindSeg('rmins',setMins);
+ bindSeg('reqm',function(v){REQM=v;if(S)rReq(view())});bindSeg('recm',function(v){RECM=v;if(v==='prev')loadPrev();else rRec(view())});
+ $('breq').onclick=sendReq;$('badv').onclick=sendAdv;
+ document.documentElement.lang=LANG;reqLabels();
+ if(!S){rHead();$('att').innerHTML='<div class="card"><div class="sm">'+T('முதல் முறை — இணையம் தேவை. இணைக்கிறது…','First time — needs internet. Connecting…')+'</div></div>'}
+ tab('att');renderAll();sync();
+ setInterval(function(){rHead();if(ymd(new Date())+curShift()!==LASTK)renderAll()},20000);
+ setInterval(function(){if(document.visibilityState==='visible')sync()},60000);
+ setInterval(function(){if(Q.length&&document.visibilityState==='visible')sync()},20000);
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')sync()});
+ window.addEventListener('online',function(){sync()});
+ if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(function(){});
+}
+boot();
+</script></body></html>
