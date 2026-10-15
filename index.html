@@ -196,7 +196,7 @@ details{margin-top:10px}summary{font-size:14.5px;font-weight:700;color:var(--tea
 
 <script>
 var API='https://script.google.com/macros/s/AKfycbwWvbZnE_KESEOjOjaYEZgljZOe_3wc1LXOe4AYs0dx36zMGFZV84j08N5ukCNo4owK/exec',VER='v1 · 15-10-2026';
-var K='',LANG='ta',S=null,Q=[],TAB='att',ORDER=['att','run','rec','req','rule'],CUR={FN:null,AN:null},ISS=null,SYNC=false,AGAIN=false,NET='',BUSY=false;
+var ERRM='',K='',LANG='ta',S=null,Q=[],TAB='att',ORDER=['att','run','rec','req','rule'],CUR={FN:null,AN:null},ISS=null,SYNC=false,AGAIN=false,NET='',BUSY=false;
 var RTYPE='LV',RPART='',RMINS=0,REQM='lv',RECM='cur',RECP=null,MK=null;
 var MTA=['ஜனவரி','பிப்ரவரி','மார்ச்','ஏப்ரல்','மே','ஜூன்','ஜூலை','ஆகஸ்ட்','செப்டம்பர்','அக்டோபர்','நவம்பர்','டிசம்பர்'];
 var MEN=['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -250,7 +250,7 @@ function view(){
 function post(fn,args){
  var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},40000);
  return fetch(API,{method:'POST',body:JSON.stringify({key:K,fn:fn,args:[args]}),signal:ctl?ctl.signal:undefined})
-  .then(function(r){return r.json()}).then(function(j){clearTimeout(tm);if(!j.ok)throw new Error(j.err||'?');return j.r},function(e){clearTimeout(tm);throw e})}
+  .then(function(r){return r.text()}).then(function(t){clearTimeout(tm);var j;try{j=JSON.parse(t)}catch(x){var e1=new Error('JSON? '+t.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').slice(0,160));e1.srv=1;throw e1}if(!j.ok){var e2=new Error(j.err||'?');e2.srv=1;throw e2}return j.r},function(e){clearTimeout(tm);throw e})}
 function sync(){
  if(!K)return;if(SYNC){AGAIN=true;return}SYNC=true;
  var items=Q.slice(0,40),fn=items.length?'sync':'state';
@@ -260,7 +260,7 @@ function sync(){
   if(items.length){r.res.forEach(function(x){var i=-1;Q.forEach(function(q,k){if(q.cid===x.cid)i=k});if(i<0)return;
    if(x.ok||!x.retry){Q.splice(i,1);if(!x.ok&&x.msg)bad.push(x.msg)}else{Q[i].n=(Q[i].n||0)+1;if(Q[i].n>=6){bad.push(x.msg||'?');Q.splice(i,1)}}});ls('q',Q)}
   S=st;ls('st',S);NET='ok';renderAll();if(bad.length)M('err',bad.join('\n\n'));
- }).catch(function(e){NET=/AUTH/.test(String(e&&e.message))?'auth':'off';renderNet()}).then(function(){SYNC=false;if(AGAIN){AGAIN=false;setTimeout(sync,400)}})}
+ }).catch(function(e){var m=String(e&&e.message||e);NET=/AUTH/.test(m)?'auth':(e&&e.srv)?'err':'off';ERRM=m;renderNet()}).then(function(){SYNC=false;if(AGAIN){AGAIN=false;setTimeout(sync,400)}})}
 function act(a,p,after){
  if(BUSY)return;BUSY=true;M('wait',T('அனுப்புகிறது…','Sending…'));p=p||{};
  post('act',{a:a,p:p,lang:LANG}).then(function(r){BUSY=false;if(r.state){S=r.state;ls('st',S)}renderAll();M(r.ok?(r.warn?'warn':'ok'):'err',r.msg);if(after)after(r)})
@@ -273,6 +273,7 @@ function rHead(){var d=new Date();$('dtxt').textContent=d.getDate()+' '+(LANG===
 function renderNet(){var n=$('net'),q=Q.length;
  if(NET==='auth'){n.className='net auth';n.textContent=T('⚠ இணைப்பு தவறு — உரிமையாளரிடம் புதிய இணைப்பு கேளுங்கள்.','⚠ Wrong link — ask the owner for a new link.');return}
  if(q){n.className='net q';n.textContent=T('⏳ '+q+' பதிவு phone-ல் உள்ளது — signal வந்ததும் தானாக அனுப்பப்படும்.','⏳ '+q+' entries saved on phone — sent automatically when signal returns.')+(NET==='off'?' 📵':'');return}
+ if(NET==='err'){n.className='net auth';n.textContent=T('⚠ Sheet பிழை — உரிமையாளரிடம் இந்தச் செய்தியைக் காட்டுங்கள்: ','⚠ Sheet error — show this to the owner: ')+ERRM;return}
  if(NET==='off'){n.className='net off';n.textContent=T('📵 இணையம் இல்லை — பதிவுகள் phone-ல் சேமிக்கப்படும்.','📵 No internet — entries are saved on the phone.');return}
  n.className='net';n.textContent=''}
 
