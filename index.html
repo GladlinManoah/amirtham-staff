@@ -173,6 +173,8 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--teal)}
 .nav svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .nav b{font-size:11px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .nav a.on{color:var(--teal);background:#E6F0F3}
+body.newbie .stop .nmx{font-size:38px}body.newbie .pkbig{font-size:54px}body.newbie .ph{max-height:320px}
+.nod{font-size:17px;line-height:1.6}.nod b{color:var(--teal)}
 body.route .hero,body.route .today,body.route .who{display:none}body.route .runtop{margin-top:14px}
 .nav .n{position:absolute;top:1px;right:calc(50% - 22px);background:var(--bad);color:#fff;border-radius:9px;min-width:17px;height:17px;font-size:10.5px;font-family:var(--num);font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid #fff}
 .toast{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:15;border-radius:16px;padding:12px 14px;font-size:15.5px;line-height:1.5;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.18);display:none}
@@ -239,7 +241,7 @@ body.route .hero,body.route .today,body.route .who{display:none}body.route .runt
 </nav>
 
 <script>
-var API='https://script.google.com/macros/s/AKfycbwWvbZnE_KESEOjOjaYEZgljZOe_3wc1LXOe4AYs0dx36zMGFZV84j08N5ukCNo4owK/exec',VER='v3 · 19-10-2026';
+var API='https://script.google.com/macros/s/AKfycbwWvbZnE_KESEOjOjaYEZgljZOe_3wc1LXOe4AYs0dx36zMGFZV84j08N5ukCNo4owK/exec',VER='v4 · 20-10-2026';
 var K='',LANG='ta',S=null,Q=[],TAB='att',ORDER=['att','run','rec','req','rule'],CUR={FN:null,AN:null},ISS=null,SYNC=false,AGAIN=false,NET='',BUSY=false,GPS=false,CLK=null,DIR='';
 var RTYPE='LV',RPART='',RMINS=0,REQM='lv',RECM='cur',RECP=null,PHOTO=null,TT=null;
 var MTA=['ஜனவரி','பிப்ரவரி','மார்ச்','ஏப்ரல்','மே','ஜூன்','ஜூலை','ஆகஸ்ட்','செப்டம்பர்','அக்டோபர்','நவம்பர்','டிசம்பர்'];
@@ -269,6 +271,13 @@ function dur(m){if(m==null||m<0)return'—';return m<60?m+T(' நி',' min'):Ma
 function fmtN(x){return Math.round(Number(x)||0).toLocaleString('en-IN')}
 function shL(F){return F==='FN'?T('காலை','Morning'):T('மாலை','Evening')}
 function curShift(){return mins(new Date())<720?'FN':'AN'}
+function ft(k){return!S||!S.me||!!S.me.f[k]}
+function onDuty(v,F){return!v.duty||!!v.duty[F]}
+function order(){return['att','run','rec','req','rule'].filter(function(t){return t==='att'||t==='run'||ft(t)})}
+function noDuty(v,F){var nx=v.next&&v.next[F],h='<div class="card"><div class="nod">'+T('இன்று <b>'+shL(F)+'</b> நேரம் உங்களுக்கு ஒதுக்கப்படவில்லை.','The <b>'+shL(F).toLowerCase()+'</b> shift today is not assigned to you.');
+ if(nx){var st=nx.F==='FN'?v.cfg.fnStart:v.cfg.anStart,d=nx.ds===v.today?T('இன்று','today'):(nx.ds===v.tomorrow?T('நாளை','tomorrow'):dmy(nx.ds));h+='<br>'+T('உங்கள் அடுத்த பணி: ','Your next shift: ')+'<b>'+d+' '+shL(nx.F)+' — '+h12(st)+'</b>'}
+ else if(v.me&&v.me.id!=='P1')h+='<br>'+T('அடுத்த பணி இன்னும் ஒதுக்கவில்லை — உரிமையாளர் சொல்வார்.','No next shift yet — the owner will tell you.');
+ return h+'</div></div>'}
 function dist(a,b,c,d){var r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.pow(Math.sin(x/2),2)+Math.cos(a*r)*Math.cos(c*r)*Math.pow(Math.sin(y/2),2);return Math.round(2*6371000*Math.asin(Math.sqrt(h)))}
 var PKS=[['0.5',2],['0.7',1],['1',0]];
 function pkTxt(p){var t=[],u=T(' லி',' L');PKS.forEach(function(x){if(p[x[1]])t.push(x[0]+u+' × '+p[x[1]])});return t.join(' + ')}
@@ -347,6 +356,7 @@ function recentH(v){var h='';(v.recent||[]).forEach(function(q){var ok=q.dec==='
 function lateInfo(v,F){var a=v.att[F],c=v.cfg,t=tmin(a.t,F==='AN');if(t==null)return null;var st=F==='FN'?c.fnStart:c.anStart,late=t-st;
  if(late<=c.grace+(a.allow||0))return null;return{min:late,allow:a.allow||0,fine:Math.max(0,late-(a.allow||0)-c.grace)*c.lateRate}}
 function rAtt(v){var h=recentH(v),F=curShift(),a=v.att[F];
+ if(!onDuty(v,F)&&!a.t){$('att').innerHTML=h+noDuty(v,F);bindRef();return}
  function box(G){var x=v.att[G],cls=x.t?'on':(x.off?'lv':''),big=x.t||(x.off?T('விடுப்பு','Leave'):'—');
   return'<div class="'+cls+'"><div class="t">'+shL(G)+'</div><b>'+esc(big)+'</b>'+(x.milk?'<i>🥛 '+T('பால் ','Milk ')+esc(x.milk)+'</i>':'')+'</div>'}
  h+='<div class="card"><div class="h"><div>'+T('வருகைப் பதிவேடு','Attendance register')+'</div></div><div class="shift">'+box('FN')+box('AN')+'</div>';
@@ -356,9 +366,9 @@ function rAtt(v){var h=recentH(v),F=curShift(),a=v.att[F];
  else if(a.off)btn='<button class="big" id="bin" disabled>'+MS('leave_today',{'நேரம்':shL(F)})+'</button>';
  else btn='<button class="big" id="bin"'+(m<180||m>=1320?' disabled':'')+'>'+T('பதிவு செய்','Register')+'</button>';
  h+=btn+'</div>';
- var L=a.t?lateInfo(v,F):null;
+ var L=a.t&&ft('why')?lateInfo(v,F):null;
  if(L){var al=L.allow?T(' (அனுமதி '+L.allow+' நிமி)',' (allowed '+L.allow+' min)'):'';
-  h+='<div class="msg warn" style="display:block">'+MS(v.cfg.active?'late':'late_later',{'நேரம்':LANG==='en'?shL(F).toLowerCase():shL(F),'நிமிடம்':L.min,'அனுமதி':al,'தொகை':L.fine})+'</div>';
+  h+='<div class="msg warn" style="display:block">'+(v.cfg.fine===false?'⏰ '+T('இன்று '+L.min+' நிமிடம் தாமதம்.','You are '+L.min+' minutes late today.'):MS(v.cfg.active?'late':'late_later',{'நேரம்':LANG==='en'?shL(F).toLowerCase():shL(F),'நிமிடம்':L.min,'அனுமதி':al,'தொகை':L.fine}))+'</div>';
   h+='<div class="card"><div class="h"><div>'+T('தாமதக் காரணம்','Reason for late')+'</div></div>';
   if(a.why)h+='<span class="pill g">✓ '+T('பதிவானது','Saved')+' — '+esc(whyL(a.why))+'</span></div>';
   else{h+='<div class="sm" style="text-align:left;margin:0 0 6px">'+MS('late_why')+'</div><select id="lwhy"><option value="">'+T('காரணம் தேர்வு செய்யவும்','Choose reason')+'</option>';
@@ -430,9 +440,10 @@ function curIdx(v,F){var g=giveOf(v,F),lg=v.dlog[F]||{},i=-1;g.forEach(function(
  if(i<0){g.some(function(s,k){if(!lg[s.id]){i=k;return true}});if(i<0)i=Math.max(0,g.length-1);CUR[F]=g[i]?g[i].id:null}return i}
 function rRun(v){var F=runShift(v),a=v.att[F],d=v.deliv[F],h='';
  var head='<div class="h"><div>'+shL(F)+T(' விநியோகம்',' delivery')+'</div><small data-ref="1">⟳</small></div>';
+ if(!onDuty(v,F)&&!a.t){$('run').innerHTML=noDuty(v,F);bindRef();return}
  if(a.off&&!a.t){$('run').innerHTML='<div class="card">'+head+MS('leave_today',{'நேரம்':shL(F)})+'</div>';bindRef();return}
  if(!a.t){$('run').innerHTML='<div class="card">'+head+'<div class="sm" style="text-align:left">'+MS('before_in')+'</div><button class="big t" data-go="att">'+T('வருகைப் பதிவேடு','Attendance register')+'</button></div>';bindRef();return}
- var L=lateInfo(v,F);
+ var L=ft('why')?lateInfo(v,F):null;
  if(L&&!a.why){$('run').innerHTML='<div class="card">'+head+MS('late_why')+'<button class="big y" data-go="att">'+T('காரணம் அனுப்ப','Send reason')+'</button></div>';bindRef();return}
  if(!d){$('run').innerHTML='<div class="card">'+head+staleBox(v)+T('இன்றைய பட்டியல் இன்னும் வரவில்லை.','Today\'s list has not come yet.')+'</div>';bindRef();return}
  var give=giveOf(v,F),lg=v.dlog[F]||{},done=give.filter(function(s){return lg[s.id]});
@@ -463,7 +474,7 @@ function rRun(v){var F=runShift(v),a=v.att[F],d=v.deliv[F],h='';
    h+='<input id="inote" maxlength="200" placeholder="'+T('குறிப்பு (விருப்பம்)','Note (optional)')+'"><div class="two"><button class="big y" id="bisend">'+T('அனுப்பு','Send')+'</button><button class="big w" id="bicancel">'+T('வேண்டாம்','Cancel')+'</button></div></div>'}
   else{var nlat=cur.tmp&&cur.tmp.lat!=null?cur.tmp.lat:cur.lat,nlng=cur.tmp&&cur.tmp.lat!=null?cur.tmp.lng:cur.lng;
    h+='<div class="acts"><button class="ib ok" id="bdone" aria-label="✓">✓</button><button class="ib is" id="biss" aria-label="⚠">⚠</button></div>';
-   h+='<div class="acts2"><button class="ib nv" id="bnav" aria-label="🧭"'+(nlat==null?' disabled':'')+'>🧭</button><button class="ib lc'+(v.dlog.mk[cur.id]||cur.mk?' pend':'')+'" id="bloc" aria-label="📍">📍</button><button class="ib pc'+(v.dlog.ph[cur.id]?' pend':'')+'" id="bpho" aria-label="📷">📷</button></div>';
+   h+='<div class="acts2"><button class="ib nv" id="bnav" aria-label="🧭"'+(nlat==null?' disabled':'')+'>🧭</button>'+(ft('mark')?'<button class="ib lc'+(v.dlog.mk[cur.id]||cur.mk?' pend':'')+'" id="bloc" aria-label="📍">📍</button><button class="ib pc'+(v.dlog.ph[cur.id]?' pend':'')+'" id="bpho" aria-label="📷">📷</button>':'')+'</div>';
    h+='<div class="nxp"><span id="bprev">'+(i>0?'‹ '+esc(give[i-1].rt):'')+'</span><span id="bnext">'+(i<give.length-1?esc(give[i+1].rt)+' ›':'')+'</span></div>'}
   h+='</div>'}
  h+='<div style="margin:0 14px"><button class="big t" id="bend">'+T('விநியோகம் முடிந்தது','Delivery finished')+'</button></div>';
@@ -512,6 +523,7 @@ function finView(v,F,n,dn){var a=v.att[F],pm=F==='AN',b=tmin(a.b,pm),e=tmin(a.e,
  if(sp&&dl!=null){h+='<div class="spd">'+MS('avg',{'சராசரி':dur(sp.m)});if(sp.m-dl>=3)h+='<br>'+MS('fast',{'வித்தியாசம்':dur(sp.m-dl)});h+='</div>'}
  return h+'</div>'}
 function closing(v,F){var nx=v.next&&v.next[F];
+ if(v.me&&!nx)return'';
  if(nx&&nx.skip)return MT('end_date',{'தேதி':dmy(nx.ds),'நேரம்':shL(nx.F)});
  return MT(F==='FN'?'end_fn':'end_an')}
 function thanks(v,F,yes){var nx=(v.next&&v.next[F])||{F:F==='FN'?'AN':'FN'},st=nx.F==='FN'?v.cfg.fnStart:v.cfg.anStart,cm=v.cfg.callMin||45;
@@ -519,6 +531,7 @@ function thanks(v,F,yes){var nx=(v.next&&v.next[F])||{F:F==='FN'?'AN':'FN'},st=n
  var o={'நேரத்தில்':F==='FN'?T('காலையில்','morning'):T('மாலையில்','evening'),'நிறைவு':closing(v,F),'அழைப்பு':tf(st-cm),'வருகை':tf(st)};
  return'<div class="thanks">'+(yes?'🛵 ':'')+MS(yes?'thanks_yes':'thanks_no',o)+'</div>'}
 function bikeView(v,F){var a=v.att[F],h='<div class="card">';
+ if(v.bikeAsk&&!v.bikeAsk[F])return h+thanks(v,F,false)+'</div>';
  if(F==='FN'&&v.deliv.veh===false)return h+'<div class="veh n">'+MS('bike_stay')+'</div>'+thanks(v,F,false)+'</div>';
  if(a.bike==='yes')return h+thanks(v,F,true)+'</div>';
  if(a.bike==='no')return h+thanks(v,F,false)+'</div>';
@@ -535,7 +548,7 @@ function bindBike(F){if($('byes'))$('byes').onclick=function(){enq('bike',{shift
 function rRec(v){[].forEach.call($('recm').children,function(s){var k=s.getAttribute('data-v');s.textContent=k==='cur'?T('இம்மாதம்','This month'):T('கடந்த மாதம்','Last month');s.className=k===RECM?'on':''});
  var R=RECM==='cur'?v.rec:(v.recPrev||RECP),pen=R&&!R.active;
  if(!R){$('rec').innerHTML='<div class="card"><div class="sm">'+(RECM==='prev'?T('கடந்த மாதப் பதிவு இல்லை.','No record for last month.'):'—')+'</div></div>';return}
- var h='<div class="card"><div class="h"><div>'+esc(T(R.label,R.labelEn))+'</div><small data-ref="1">⟳</small></div><div class="chips"><div><b>'+R.nFN+'</b><span>'+T('காலை வந்தது','Mornings')+'</span></div><div><b>'+R.nAN+'</b><span>'+T('மாலை வந்தது','Evenings')+'</span></div></div>';
+ var h='<div class="card"><div class="h"><div>'+esc(T(R.label,R.labelEn))+'</div><small data-ref="1">⟳</small></div>'+(R.sub?'':'')+'<div class="chips"><div><b>'+R.nFN+'</b><span>'+T('காலை வந்தது','Mornings')+'</span></div><div><b>'+R.nAN+'</b><span>'+T('மாலை வந்தது','Evenings')+'</span></div></div>';
  R.el.forEach(function(e){if(!e.live&&!e.done)return;var pay='₹'+R.elPay+' + ₹'+R.bonusH;
   if(e.done)h+='<div class="el '+(e.ok?'g':'r')+'">'+e.h+': '+(e.ok?T('✓ ஈட்டிய விடுப்புச் சம்பளம் + போனஸ் ','✓ Earned-leave pay + bonus ')+pay:T('சலுகை இல்லை — ','No benefit — ')+esc(e.why))+'</div>';
   else if(e.ok)h+='<div class="el g">'+T('✓ இந்த அரை மாதம் ('+e.h+') இதுவரை விடுப்பு இல்லை. மீதி '+e.left+' நாளும் தொடர்ந்து வந்தால் ஈட்டிய விடுப்புச் சம்பளம் + வருகை போனஸ் '+pay+' கிடைக்கும்.','✓ This half ('+e.h+'): no leave so far. Keep coming for the remaining '+e.left+' days to get earned-leave pay + bonus '+pay+'.')+'</div>';
@@ -543,13 +556,15 @@ function rRec(v){[].forEach.call($('recm').children,function(s){var k=s.getAttri
  h+='</div>';
  if(R.slip){var L=R.slip[LANG]||R.slip.ta;h+='<div class="card slip"><div class="h"><div>💰 '+T('சம்பளம் — ','Salary — ')+esc(T(R.label,R.labelEn))+'</div></div>';
   L.forEach(function(x){h+='<div class="a'+(x.b===2?' net':x.b?' t':x.v<0?' n':'')+'"><span>'+esc(x.t)+'</span><b>'+(x.v<0?'− ':'')+'₹'+fmtN(Math.abs(x.v))+'</b></div>'});h+='</div>'}
- h+='<div class="card"><div class="legend"><span><i style="background:#C62828"></i>'+T('உறுதி செய்யவில்லை','Not confirmed')+'</span><span><i style="background:#2E7D32"></i>'+T('உறுதி — பிடித்தம் இல்லை','Confirmed — no deductions')+'</span><span><i style="background:#E09A1A"></i>'+T('உறுதி — பிடித்தம் உண்டு','Confirmed — deductions')+'</span></div>';
+ h+='<div class="card">'+(R.sub?'<div style="display:none">':'')+'<div class="legend"><span><i style="background:#C62828"></i>'+T('உறுதி செய்யவில்லை','Not confirmed')+'</span><span><i style="background:#2E7D32"></i>'+T('உறுதி — பிடித்தம் இல்லை','Confirmed — no deductions')+'</span><span><i style="background:#E09A1A"></i>'+T('உறுதி — பிடித்தம் உண்டு','Confirmed — deductions')+'</span></div>'+(R.sub?'</div>':'');
  if(!R.days.length)h+='<div class="sm">—</div>';
  var p=R.key.split('-');
  R.days.forEach(function(x){var m=x.m,ded=m&&((!pen&&(m.late||m.una))||m.fuel||m.adv),cls=!x.ok?'c-r':(ded?'c-a':'c-g');
   h+='<div class="day '+cls+'"><div class="dh">'+p2(x.d)+'/'+p[1]+'/'+p[0]+'</div>';
   ['FN','AN'].forEach(function(F){var s=x[F],t;
+   if(R.sub&&!s.st&&!s.amt)return;
    if(s.st==='P'){t='<b>'+shL(F)+'</b> · '+T('வருகை ','in ')+esc(s.t)+' · '+T('பேக்கிங் ','packing ')+dur(s.pk)+' · '+T('விநியோகம் ','delivery ')+dur(s.dl);
+    if(s.amt)t+=' · <b style="color:var(--ok)">₹'+fmtN(s.amt)+'</b>'+(s.paid?' ✓':'');
     if(s.late)t+='<div class="lt2">⏰ '+T('தாமதம் ','Late ')+s.late+T(' நிமி',' min')+(s.why?' ('+esc(whyL(s.why))+')':'')+'</div>'}
    else if(s.st)t='<b>'+shL(F)+'</b> · '+esc(stL(s.st));else t='<b>'+shL(F)+'</b> · —';
    h+='<div class="sl">'+t+'</div>'});
@@ -558,7 +573,7 @@ function rRec(v){[].forEach.call($('recm').children,function(s){var k=s.getAttri
    if(z.length||y.length)h+='<div class="mm">'+(z.length?'<span style="color:#9A5A00">'+z.join(' · ')+'</span>':'')+(z.length&&y.length?'<br>':'')+(y.length?'<span style="color:var(--ok)">'+y.join(' · ')+'</span>':'')+'</div>'}
   h+='</div>'});
  $('rec').innerHTML=h+'</div>';bindRef()}
-function stL(s){var m={'அனுமதியுடன்':['விடுப்பு (அனுமதியுடன்)','Leave (approved)'],'ஈட்டிய விடுப்பு':['ஈட்டிய விடுப்பு','Earned leave'],'அனுமதியின்றி':['அனுமதியின்றி விடுப்பு','Leave without permission'],'?':['பதிவு இல்லை','No record']};return m[s]?T(m[s][0],m[s][1]):s}
+function stL(s){var m={'அனுமதியுடன்':['விடுப்பு (அனுமதியுடன்)','Leave (approved)'],'ஈட்டிய விடுப்பு':['ஈட்டிய விடுப்பு','Earned leave'],'அனுமதியின்றி':['அனுமதியின்றி விடுப்பு','Leave without permission'],'?':['பதிவு இல்லை','No record'],'—':['உங்களுக்கு ஒதுக்கவில்லை','Not assigned to you']};return m[s]?T(m[s][0],m[s][1]):s}
 function loadPrev(){if(!S||S.recPrev)return;var k=S.today.split('-'),d=new Date(+k[0],+k[1]-2,1),key=d.getFullYear()+'-'+p2(d.getMonth()+1);
  RECP=ls('recp');if(RECP&&RECP.key!==key)RECP=null;rRec(view());
  post('rec',{key:key,lang:LANG}).then(function(r){RECP=r;ls('recp',r);rRec(view())}).catch(function(){})}
@@ -627,21 +642,22 @@ function reqLabels(){var L={t_newreq:['புதிய கோரிக்கை'
 
 /* ---------- பொது ---------- */
 function rNav(){var L={att:['வருகை','Attendance'],run:['விநியோகம்','Delivery'],rec:['என் பதிவு','My record'],req:['கோரிக்கை','Requests'],rule:['விதிகள்','Rules']};
- [].forEach.call($('nav').children,function(a){var t=a.getAttribute('data-t');a.querySelector('b').textContent=T(L[t][0],L[t][1]);a.className=t===TAB?'on':''})}
+ var O=order();[].forEach.call($('nav').children,function(a){var t=a.getAttribute('data-t');a.querySelector('b').textContent=T(L[t][0],L[t][1]);a.className=t===TAB?'on':'';a.style.display=O.indexOf(t)<0?'none':''})}
 function tab(t,dir){var a=ORDER.indexOf(TAB),b=ORDER.indexOf(t);dir=dir||(b>a?'R':'L');TAB=t;
  ORDER.forEach(function(x){$('s_'+x).className='sec'+(x===t?' on in'+dir:'')});rNav();M();if(S)setRoute(view());window.scrollTo(0,0);
  if(t==='rec'&&RECM==='prev')loadPrev()}
 var LASTK='';
 function setRoute(v){document.body.classList.toggle('route',TAB==='run'&&routeOn(v))}
-function renderAll(){rHead();renderNet();rNav();LASTK=ymd(new Date())+curShift();var v=view();if(!v)return;setRoute(v);
- rAtt(v);rRun(v);rRec(v);rReq(v);$('rules').innerHTML=v.rules?(v.rules[LANG]||v.rules.ta):'';seg('lt',LANG);rLock()}
+function renderAll(){if(order().indexOf(TAB)<0){TAB='att';ORDER.forEach(function(x){$('s_'+x).className='sec'+(x==='att'?' on':'')})}
+ rHead();renderNet();rNav();LASTK=ymd(new Date())+curShift();var v=view();if(!v)return;setRoute(v);document.body.classList.toggle('newbie',!!v.newbie);
+ rAtt(v);rRun(v);if(ft('rec'))rRec(v);if(ft('req'))rReq(v);$('rules').innerHTML=v.rules?(v.rules[LANG]||v.rules.ta):'';seg('lt',LANG);rLock()}
 function setLang(l){LANG=l;ls('lang',l);document.documentElement.lang=l;reqLabels();renderAll()}
 (function(){var x0=null,y0=0,t0=0;
  document.addEventListener('touchstart',function(e){var g=e.target;if(g.closest&&g.closest('input,select,textarea,.nav,.lt,.lst,.lock,.iss'))return x0=null;x0=e.touches[0].clientX;y0=e.touches[0].clientY;t0=Date.now()},{passive:true});
  document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
   if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5||Date.now()-t0>800)return;
   if(TAB==='run'&&routeOn(view()))return move(dx<0?1:-1);
-  var i=ORDER.indexOf(TAB)+(dx<0?1:-1);if(i>=0&&i<ORDER.length)tab(ORDER[i],dx<0?'R':'L')},{passive:true})})();
+  var O=order(),i=O.indexOf(TAB)+(dx<0?1:-1);if(i>=0&&i<O.length)tab(O[i],dx<0?'R':'L')},{passive:true})})();
 function boot(){
  var m=location.hash.match(/k=([A-Za-z0-9]+)/);if(m){ls('k',m[1]);try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
  K=ls('k')||'';LANG=ls('lang')==='en'?'en':'ta';S=ls('st');Q=ls('q')||[];CLK=ls('clk')||0;
